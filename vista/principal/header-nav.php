@@ -21,6 +21,20 @@
     <!-- Hojas de estilo -->
     <link rel="stylesheet" type="text/css" href="../css/principal.css" />
 
+
+    <!-- restringir que solo puede entrar si en la Sesion esta Logeado -->
+    <!-- evitar que por inyeccion en URL poniendo la direccion /vista/principal/header-nav.php se pueda 
+    entrar, que sea necesario estar Logueado -->
+    <?php
+        session_start();
+
+        if($_SESSION['us_rol']==1||$_SESSION['us_rol']==2||$_SESSION['us_rol']==3){
+
+        $nombre=$_SESSION['nombre'];
+        $apellidos=$_SESSION['apellidos'];
+
+    ?>
+
 </head>
 <body>
     
@@ -34,7 +48,7 @@
                 <span>Inicio</span>
             </div>
             <div class="botones-usuario">
-                <span class="logo-span">Nombre y Apellidos</span>
+                <span class="logo-span"><?php echo $_SESSION['nombre'].' '.$_SESSION['apellidos']; ?></span>
                 <a href="#" class="avatar"><img src="../img/avatar.jpg" alt=""></a>
             </div>
         </header>
@@ -58,3 +72,8 @@
             <a href="#" class="enlace"><i class="icono ri-tools-line"></i>hhh</a>
 
         </nav>
+
+<?php
+    }
+?>
+

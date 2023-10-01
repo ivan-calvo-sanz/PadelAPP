@@ -21,38 +21,55 @@
     <!-- Hojas de estilo -->
     <link rel="stylesheet" type="text/css" href="css/index.css" />
 
+
+    <?php
+        /* inicio la session para poder utilizar las variables de session */
+        session_start();
+        /* si existe un Usuario guardado en la Sesion */
+        if(!empty($_SESSION['us_rol'])){
+            header('Location: ../controlador/LoginControler.php');
+            /* si NO existe Usuario guardado en la Sesion borra la Sesion */
+        }else{
+            session_destroy();
+    ?>
+
 </head>
 <body>
 
     <div class="login">
         <img src="img/fondo.jpg" alt="login image" class="login_img">
     
-        <form action="" class="login_form">
+        <form action="controlador/LoginControler.php" method="post" class="login_form">
             <h1 class="login_title">Login</h1>
             <div class="login_content">
                 <div class="login_box">
                     <i class="ri-user-3-line login_icon"></i>
                     <div class="login_box-input">
-                        <input type="text" required class="login_input" placeholder=" ">
+                        <input name="user" type="text" required class="login_input" placeholder=" ">
                         <label for="" class="login_label">Usuario</label>
                     </div>
                 </div>
                 <div class="login_box">
                     <i class="ri-lock-2-line login_icon"></i>
                     <div class="login_box-input">
-                        <input type="password" required class="login_input" id="login-pass" placeholder=" ">
+                        <input name="pass" type="password" required class="login_input" id="login-pass" placeholder=" ">
                         <label for="" class="login_label">Contraseña</label>
                         <i class="ri-eye-off-line login_eye" id="login-eye"></i>
                     </div>
                 </div>
             </div>
 
-            <button class="login_button">Login</button>
+            <button type="submit" class="login_button">Login</button>
         </form>
     
     </div>
     
 </body>
+
+  <?php
+      }
+  ?>
+
 </html>
 
 <script src="js/index.js"></script>
