@@ -32,13 +32,13 @@ switch ($_SESSION['us_rol']) {
         case 1:
                 /* Tipo 1 y 2 es para ROOT y Administrador, hago que vayan a la misma página, dentro de ella
                 hago que cambién ciertas opciones que el Admin NO podrá ver y el ROOT SI */
-                header('Location: ../vista/root-admin.php');
+                header('Location: ../vista/plantilla.php');
                 break;
         case 2:
-                header('Location: ../vista/root-admin.php');
+                header('Location: ../vista/plantilla.php');
                 break;  
         case 3:
-                header('Location: ../vista/jugador.php');
+                header('Location: ../vista/plantilla.php');
                 break; 
         default:
         /* si NO se ingresa Usuario correctamente o NO existe ese Usuario tiene que volver de nuevo al login */

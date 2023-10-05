@@ -5,7 +5,12 @@
         if($_SESSION['us_rol']==1||$_SESSION['us_rol']==2||$_SESSION['us_rol']==3){
     ?>
 
-    </div>
+   
+
+<!-- jQuery -->
+<script src="../js/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../js/bootstrap/bootstrap.bundle.min.js"></script>
 
 </body>
 

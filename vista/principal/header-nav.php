@@ -21,6 +21,11 @@
     <!-- Hojas de estilo -->
     <link rel="stylesheet" type="text/css" href="../css/principal.css" />
 
+    <!-- jQuery -->
+<script src="../js/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../js/bootstrap/bootstrap.bundle.min.js"></script>
+
 
     <!-- restringir que solo puede entrar si en la Sesion esta Logeado -->
     <!-- evitar que por inyeccion en URL poniendo la direccion /vista/principal/header-nav.php se pueda 
@@ -41,14 +46,15 @@
     <div class="contenedor active" id="contenedor">
         <header class="header">
             <div class="contenedor-logo">
-                <button id="boton-menu" class="boton-menu active"><i class="ri-bar-chart-horizontal-fill"></i></button>
+                <button id="boton-menu" class="boton-menu active"><i class="ri-menu-line"></i></button>
                 <a href="#" ><img src="../img/icono.png" alt="" class="logo"><span class="logo-span">PadelAPP</span></a>
             </div>
-            <div class="barra-busqueda">
+            <div id="header-span" class="barra-busqueda">
                 <span>Inicio</span>
             </div>
             <div class="botones-usuario">
                 <span class="logo-span"><?php echo $_SESSION['nombre'].' '.$_SESSION['apellidos']; ?></span>
+                <button class="button-cerrar"><a href="../controlador/Logout.php">Cerrar Sesion</a></button>
                 <a href="#" class="avatar"><img src="../img/avatar.jpg" alt=""></a>
             </div>
         </header>

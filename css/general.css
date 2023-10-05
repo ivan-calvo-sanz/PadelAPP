@@ -19,6 +19,7 @@ VARIABLES CSS
   /* fonts */
   --body-font: "Poppins", sans-serif;
   --h1-font-size: 1.75rem;
+  --big-font-size: 1.25rem;
   --normal-font-size: 1rem;
   --small-font-size: 0.813rem;
   --font-medium: 500;

@@ -33,7 +33,8 @@ entrar, que sea necesario estar Logueado y como Usuario ROOT o Admin-->
     <br><br>
     <button><a href="../controlador/Logout.php">Cerrar Sesion</a></button>
 
-</main>
+
+  </main>
 
 
 <?php
@@ -50,3 +51,32 @@ INCLUYO EL FOOTER
   include_once "principal/footer.php";
 ?>
 <!-- *************** -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
