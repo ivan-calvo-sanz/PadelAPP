@@ -32,12 +32,17 @@
         session_start();
 
         if($_SESSION['us_rol']==1||$_SESSION['us_rol']==2||$_SESSION['us_rol']==3){
-
-        $nombre=$_SESSION['nombre'];
-        $apellidos=$_SESSION['apellidos'];
+          $id_usuario=$_SESSION['id_usuario'];
+          $usuario=$_SESSION['usuario'];
+          $nombre=$_SESSION['nombre'];
+          $apellidos=$_SESSION['apellidos'];
+          $edad=$_SESSION['edad'];
+          $dni=$_SESSION['dni'];
+          $contrasena=$_SESSION['contrasena'];
+          $rol=$_SESSION['us_rol'];
+          $nivel=$_SESSION['us_nivel'];
 
     ?>
-  
   
   </head>
   <body>
@@ -49,7 +54,7 @@
         </div>
         <div id="header-span" class="barra-busqueda">
           <span class="avatar"><img src="../img/avatar.jpg" alt="" /></span>
-          <span>Iván Calvo</span>
+          <span><?php  echo $usuario;  ?></span>
         </div>
         <div class="botones-usuario">
           <button class="button-cerrar btn bg-gradient-danger"><a href="../controlador/Logout.php">Cerrar Sesion</a></button>
@@ -57,21 +62,12 @@
       </header>
 
       <nav class="menu-lateral" id="menu-lateral">
-        <a href="#" class="enlace active"><i class="icono ri-tools-line"></i>Datos personales</a>
-        <a href="#" class="enlace"><i class="icono ri-tools-line"></i>aaa</a>
-        <a href="#" class="enlace"><i class="icono ri-tools-line"></i>bbb</a>
+        <a href="#" class="enlace active"><i class="icono ri-tools-line"></i>Reservar Pista</a>
 
         <hr />
+        <a href="../vista/datos_personales.php" class="enlace"><i class="icono ri-tools-line"></i>Datos personales</a>
+        <a href="#" class="enlace"><i class="icono ri-tools-line"></i>Usuarios</a>
 
-        <a href="#" class="enlace"><i class="icono ri-tools-line"></i>ccc</a>
-        <a href="#" class="enlace"><i class="icono ri-tools-line"></i>ddd</a>
-        <a href="#" class="enlace"><i class="icono ri-tools-line"></i>eee</a>
-
-        <hr />
-
-        <a href="#" class="enlace"><i class="icono ri-tools-line"></i>fff</a>
-        <a href="#" class="enlace"><i class="icono ri-tools-line"></i>ggg</a>
-        <a href="#" class="enlace"><i class="icono ri-tools-line"></i>hhh</a>
       </nav>
 
 <?php

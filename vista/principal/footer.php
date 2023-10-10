@@ -3,23 +3,14 @@
     entrar, que sea necesario estar Logueado -->
     <?php
         if($_SESSION['us_rol']==1||$_SESSION['us_rol']==2||$_SESSION['us_rol']==3){
-    ?>
-
-   
-
-<!-- jQuery -->
-<script src="../js/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="../js/bootstrap/bootstrap.bundle.min.js"></script>
-
-</body>
-
-<?php
-    }else{
+              }else{
         header('Location: ../../index.php');
     }
-?>
+    ?>
 
+
+    <!-- js -->
+    <script src="../js/header-nav.js"></script>
+
+  </body>
 </html>
-
-<script src="../js/principal.js"></script>

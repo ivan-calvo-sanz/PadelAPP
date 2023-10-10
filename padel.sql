@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-10-2023 a las 09:24:13
+-- Tiempo de generación: 07-10-2023 a las 07:49:17
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.12
 
@@ -96,6 +96,11 @@ CREATE TABLE `tblusuario` (
   `edad` varchar(45) NOT NULL,
   `dni` varchar(45) NOT NULL,
   `contrasena` varchar(45) NOT NULL,
+  `telefono` varchar(25) DEFAULT NULL,
+  `direccion` varchar(45) DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  `sexo` varchar(25) DEFAULT NULL,
+  `adicional` varchar(500) DEFAULT NULL,
   `us_rol` int(11) NOT NULL,
   `us_nivel` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -104,22 +109,22 @@ CREATE TABLE `tblusuario` (
 -- Volcado de datos para la tabla `tblusuario`
 --
 
-INSERT INTO `tblusuario` (`id_usuario`, `usuario`, `nombre`, `apellidos`, `edad`, `dni`, `contrasena`, `us_rol`, `us_nivel`) VALUES
-(1, 'root', 'Ivan', 'Calvo Sanz', '20', '71224499R', '123r', 1, 0),
-(2, 'admin1', 'Tania', 'Fernandez Perez', '28', '88556677X', '123a', 2, 5),
-(3, 'admin2', 'Fernando', 'Garcia Martin', '26', '11225577P', '123a', 2, 6),
-(4, 'jugador1', 'Ivan', 'Calvo Sanz', '20', '71224499R', '123j', 3, 4),
-(5, 'jugador2', 'Tania', 'Fernandez Pulido', '22', '88665522K', '123j', 3, 1),
-(6, 'jugador3', 'Fernando', 'Garcia Manrique', '24', '88665522K', '123j', 3, 1),
-(7, 'jugador4', 'Ivan', 'Perez Pulido', '35', '11223344K', '123j', 3, 2),
-(8, 'jugador5', 'Javier', 'Gomez Muñoz', '38', '55667788K', '123j', 3, 2),
-(9, 'jugador6', 'Carlos', 'Torres Navarro', '40', '00668899L', '123j', 3, 4),
-(10, 'jugador7', 'Javier', 'Gomez Garcia', '44', '55667788K', '123j', 3, 4),
-(11, 'jugador8', 'Fernando', 'Garcia Gomez', '31', '00228888L', '123j', 3, 4),
-(12, 'jugador9', 'Fernando', 'Garcia Navarro', '31', '88335544Ñ', '123j', 3, 5),
-(13, 'jugador10', 'Tania', 'Fernandez Gomez', '28', '55667788O', '123j', 3, 5),
-(14, 'jugador11', 'Ivan', 'Calvo Garcia', '26', '00668844B', '123j', 3, 6),
-(15, 'jugador12', 'Fernando', 'Garcia Martinez', '28', '55667788X', '123j', 3, 6);
+INSERT INTO `tblusuario` (`id_usuario`, `usuario`, `nombre`, `apellidos`, `edad`, `dni`, `contrasena`, `telefono`, `direccion`, `email`, `sexo`, `adicional`, `us_rol`, `us_nivel`) VALUES
+(1, 'root', 'Iván', 'Calvo Sanz', '20', '71224499R', '123', '619 47 52 32', 'C/ María de Molina 1 4ºB', NULL, 'Hombre', 'es el propietario de la APP', 1, 0),
+(2, 'admin1', 'Tania', 'Fernandez Perez', '28', '88556677X', '123', '666 25 36 58', 'C/ Francisco Mendizabal 3 1ºB', NULL, 'Mujer', 'es uno de los administradores de la APP', 2, 5),
+(3, 'admin2', 'Fernando', 'Garcia Martin', '26', '11225577P', '123', '625 84 56 32', 'C/ Farnesio 5 3ºC', NULL, 'Hombre', 'es uno de los administradores de la APP', 2, 6),
+(4, 'jugador1', 'Iván', 'Calvo Sanz', '20', '71224499R', '123', '624 58 74 32', 'C/ Bjada del Molino 6 9ºB', NULL, 'Hombre', 'es uno de los jugadores más veteranos de la APP', 3, 4),
+(5, 'jugador2', 'Tania', 'Fernandez Pulido', '22', '88665522K', '123', '635 21 85 96', 'C/ Hernando 10 6ºB', NULL, 'Mujer', 'es uno de los jugadores más veteranos de la APP', 3, 1),
+(6, 'jugador3', 'Fernando', 'Garcia Manrique', '24', '88665522K', '123', '0', '', NULL, 'Hombre', NULL, 3, 1),
+(7, 'jugador4', 'Iván', 'Perez Pulido', '35', '11223344K', '123', '0', '', NULL, 'Hombre', NULL, 3, 2),
+(8, 'jugador5', 'Javier', 'Gomez Muñoz', '38', '55667788K', '123', '0', '', NULL, 'Hombre', NULL, 3, 2),
+(9, 'jugador6', 'Carlos', 'Torres Navarro', '40', '00668899L', '123', '0', '', NULL, 'Hombre', NULL, 3, 4),
+(10, 'jugador7', 'Javier', 'Gomez Garcia', '44', '55667788K', '123', '0', '', NULL, 'Hombre', NULL, 3, 4),
+(11, 'jugador8', 'Fernando', 'Garcia Gomez', '31', '00228888L', '123', '0', '', NULL, 'Hombre', NULL, 3, 4),
+(12, 'jugador9', 'Fernando', 'Garcia Navarro', '31', '88335544Ñ', '123', '0', '', NULL, 'Hombre', NULL, 3, 5),
+(13, 'jugador10', 'Tania', 'Fernandez Gomez', '28', '55667788O', '123', '0', '', NULL, 'Mujer', NULL, 3, 5),
+(14, 'jugador11', 'Iván', 'Calvo Garcia', '26', '00668844B', '123', '0', '', NULL, 'Hombre', NULL, 3, 6),
+(15, 'jugador12', 'Fernando', 'Garcia Martinez', '28', '55667788X', '123', '0', '', NULL, 'Hombre', NULL, 3, 6);
 
 --
 -- Índices para tablas volcadas
