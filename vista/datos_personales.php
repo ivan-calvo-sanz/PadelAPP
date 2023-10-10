@@ -126,7 +126,7 @@ entrar, que sea necesario estar Logueado y como Usuario ROOT o Admin-->
 
                       <div class="card-body">
                         <!-- creo alert oculto lo gestiona JS cuando aparece -->
-                        <div id="editado" style="display: none" class="alert alert-success text-center">
+                        <div id="editado" style="display: none" class="alert alert-primary text-center">
                           <span><i class="fas fa-check"></i> Editado</span>
                         </div>
                         <!-- creo alert oculto lo gestiona JS cuando aparece -->
@@ -140,28 +140,28 @@ entrar, que sea necesario estar Logueado y como Usuario ROOT o Admin-->
                             <label for="telefono" class="col-sm-2 col-form-label">Telefono</label>
                             <!-- *** col-sm-10 ocupa 10 columnas pequeñas de las 12 que genera Bootstarp *** -->
                             <div class="col-sm-10">
-                              <input type="number" id="telefono" class="form-control" />
+                              <input type="text" id="telefono" class="form-control" />
                             </div>
                           </div>
                           <!-- *** FILA DENTRO DE LA COLUMNA *** -->
                           <div class="form-group row">
-                            <label for="residencia" class="col-sm-2 col-form-label">Residencia</label>
+                            <label for="direccion" class="col-sm-2 col-form-label">Direccion</label>
                             <div class="col-sm-10">
-                              <input type="text" id="residencia" class="form-control" />
+                              <input type="text" id="direccion" class="form-control" />
                             </div>
                           </div>
                           <!-- *** FILA DENTRO DE LA COLUMNA *** -->
                           <div class="form-group row">
-                            <label for="correo" class="col-sm-2 col-form-label">Correo</label>
+                            <label for="email" class="col-sm-2 col-form-label">Email</label>
                             <div class="col-sm-10">
-                              <input type="text" id="correo" class="form-control" />
+                              <input type="text" id="email" class="form-control" />
                             </div>
                           </div>
                           <!-- *** FILA DENTRO DE LA COLUMNA *** -->
                           <div class="form-group row">
                             <label for="genero" class="col-sm-2 col-form-label">Genero</label>
                             <div class="col-sm-10">
-                              <input type="text" id="sexo" class="form-control" />
+                              <input type="text" id="genero" class="form-control" />
                             </div>
                           </div>
                           <!-- *** FILA DENTRO DE LA COLUMNA *** -->

@@ -46,8 +46,6 @@ navLateral.addEventListener("mouseover", () => {
 /* *** ANCHO PANTALLA MAX 768px *** */
 /* detecto cuando se cambia el tamaño del ancho de la pantalla */
 // hago que el navegador este oculto //
-comprobarAncho();
-
 window.addEventListener("resize", () => {
   comprobarAncho();
 });
@@ -63,3 +61,5 @@ const comprobarAncho = () => {
     btnContenedor.classList.add("active");
   }
 };
+
+comprobarAncho();

@@ -3,7 +3,8 @@ include_once '../modelo/Usuario.php';
 $usuario=new Usuario();
 
 
-// *** FUNCION ***
+/* FUNCION */
+/* READ Usuario */
 if($_POST['funcion']=="buscar_usuario"){
     /* creo el JSON vacio */
     $json=array();
@@ -33,3 +34,18 @@ if($_POST['funcion']=="buscar_usuario"){
 }
 
 
+/* FUNCION */
+/* UPDATE Usuario */
+if($_POST['funcion']=="actualizar-usuario"){
+    $id_usuario=$_POST['id_usuario'];
+    $telefono=$_POST['telefono'];
+    $direccion=$_POST['direccion'];
+    $email=$_POST['email'];
+    $genero=$_POST['genero'];
+    $adicional=$_POST['adicional'];
+    $usuario->actualizar($id_usuario,$telefono,$direccion,$email,$genero,$adicional);
+    /* mando "editado" o NADA al JS para comprobar que se ha Actualizado la BBDD o NO */
+    echo 'editado';
+}
+
+?>
