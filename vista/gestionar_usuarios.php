@@ -13,7 +13,7 @@ sino que sea necesario estar Logueado y como Usuario Administrador-->
   <?php
     include_once "layouts/header-nav.php";
   ?>
-  
+
 
 <!-- 
 ***************
@@ -28,7 +28,7 @@ INICIO CONTENIDO DE LA PAGINA
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="titulo"><p><i class="fa-solid fa-table-tennis-paddle-ball fa-lg"></i>  Reservar Pista</p></h1>
+            <h1 class="titulo"><p><i class="fa-solid fa-users fa-lg"></i> Gestionar Usuarios</p></h1>
           </div>
         </div>
       </div>
@@ -63,4 +63,4 @@ FIN CONTENIDO DE LA PAGINA
     }
 ?>
 
-<!-- <script src="../js/reservar_pista.js"></script> -->
+<!-- <script src="../js/gestionar_usuarios.js"></script> -->

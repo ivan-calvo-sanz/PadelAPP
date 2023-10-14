@@ -1,46 +1,65 @@
-<!-- INCLUYO EL HEADER -->
+<!-- restringir que solo puedan entrar en la Sesion si está Logeado como Usuario ROOT o Administrador -->
+<!-- es decir evitar que por inyeccion en la URL poniendo la direccion /adm_catalogo.php se pueda entrar,
+sino que sea necesario estar Logueado y como Usuario Administrador-->
 <?php
-  include_once "principal/header-nav.php";
-?>
-
-<!-- restringir que solo puede entrar si en la Sesion esta Logeado como Usuario ROOT o Admin -->
-<!-- evitar que por inyeccion en URL poniendo la direccion /root-admin.php se pueda 
-entrar, que sea necesario estar Logueado y como Usuario ROOT o Admin-->
-<?php
-    /* si us_rol=1 significa que es ROOT */
+    session_start();
+    /* si us_rol=1 significa que es Administrador */
+    /* si us_rol=2 significa que es ROOT */
     if($_SESSION['us_rol']==1||$_SESSION['us_rol']==2){
 ?>
 
-<!-- INICIO CONTENIDO DE LA PAGINA -->
-<main class="main">
+  <!-- INCLUYO EL HEADER-NAV -->
+  <?php
+    include_once "layouts/header-nav.php";
+  ?>
 
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
-          <!-- Content Header (Page header) -->
-          <section class="content-header">
-            <div class="container-fluid">
-              <div class="row mb-2">
-                <div class="col-sm-6">
-                  <h1>Home</h1>
-                </div>
-              </div>
-            </div>
-            <!-- /.container-fluid -->
-          </section>
+
+<!-- 
+***************
+INICIO CONTENIDO DE LA PAGINA
+***************
+-->
+
+  <!-- CONTENEDOR PRINCIPAL -->
+  <div class="content-wrapper">
+    <!-- SECTION HEADER -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="titulo"><p><i class="fa-solid fa-house fa-lg"></i> HOME</p></h1>
+          </div>
         </div>
+      </div>
+    </section>
 
-</main>
+    <!-- SECTION -->
+    <section class="content">
 
+
+
+
+    </section>
+    
+  </div>
+  
+<!-- 
+***************
+FIN CONTENIDO DE LA PAGINA
+***************
+-->
+
+  <!-- INCLUYO EL FOOTER -->
+  <?php
+    include_once "layouts/footer.php";
+  ?>
+    
+
+<!-- FIN LAYOUT AdminLTE -->
 <?php
+    }else{
+        header('Location: ../index.php');
     }
 ?>
 
-
-<!-- js -->
-<!-- <script src="../js/datos_personales.js"></script> -->
-
-
-<!-- INCLUYO EL FOOTER -->
-<?php
-  include_once "principal/footer.php";
-?>
+<!-- <script src="../js/home.js"></script> -->

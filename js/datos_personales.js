@@ -5,6 +5,14 @@ $(document).ready(function () {
   //console.log(id_usuario);
   var edit = false;
 
+  /* CARGAR AVATAR USUARIO */
+  const avatarSession = document.getElementById("avatarSession").value;
+  //console.log(avatarSession);
+  const avatars = document.getElementsByClassName("avatar");
+  for (let i = 0; i < avatars.length; i++) {
+    avatars[i].src = "../img/" + avatarSession;
+  }
+
   buscar_usuario(id_usuario);
 
   /* FUNCION */
@@ -30,7 +38,7 @@ $(document).ready(function () {
       let adicional = usuario.adicional;
       document.getElementById("nombre_us").innerHTML = nombre;
       document.getElementById("apellidos_us").innerHTML = apellidos;
-      document.getElementById("edad").innerHTML = edad;
+      document.getElementById("edad").innerHTML = edad + " años";
       document.getElementById("dni_us").innerHTML = dni;
 
       let rolTxt;
@@ -45,21 +53,21 @@ $(document).ready(function () {
       document.getElementById("us_rol").innerHTML = rolTxt;
       document.getElementById("nivel").innerHTML = nivel;
 
-      document.getElementById("telefono_us").innerHTML = telefono;
-      document.getElementById("direccion_us").innerHTML = direccion;
-      document.getElementById("email_us").innerHTML = email;
-      document.getElementById("genero_us").innerHTML = genero;
-      document.getElementById("adicional_us").innerHTML = adicional;
+      document.getElementById("telefono").innerHTML = telefono;
+      document.getElementById("direccion").innerHTML = direccion;
+      document.getElementById("email").innerHTML = email;
+      document.getElementById("genero").innerHTML = genero;
+      document.getElementById("adicional").innerHTML = adicional;
     });
   }
 
-  /* EVENTO CLICK BOTON EDITAR */
+  /* EVENTO CLICK BOTON "Editar" */
   document.getElementById("btn-editar").addEventListener("click", editar, false);
   function editar() {
     edit = true;
     funcion = "buscar_usuario";
 
-    /* PETICION AJAX MEDIANTE JQuery al CONTROLER */
+    /* peticion AJAX mediante JQuery al Controller */
     $.post("../controlador/UsuarioController.php", { id_usuario, funcion }, (response) => {
       /* convierto el JSON formato String que nos envía el UsuarioControLler PHP a formato JS */
       const usuario = JSON.parse(response);
@@ -70,25 +78,25 @@ $(document).ready(function () {
       let genero = usuario.genero;
       let adicional = usuario.adicional;
 
-      document.getElementById("telefono").value = telefono;
-      document.getElementById("direccion").value = direccion;
-      document.getElementById("email").value = email;
-      document.getElementById("genero").value = genero;
-      document.getElementById("adicional").value = adicional;
+      document.getElementById("edit_telefono").value = telefono;
+      document.getElementById("edit_direccion").value = direccion;
+      document.getElementById("edit_email").value = email;
+      document.getElementById("edit_genero").value = genero;
+      document.getElementById("edit_adicional").value = adicional;
     });
   }
 
-  /* EVENTO SUBMIT AL ENVIAR EL FORMULARIO */
+  /* EVENTO SUBMIT AL ENVIAR EL FORMULARIO "Guardar" */
   document.getElementById("form-usuario").addEventListener("submit", guardar, false);
   function guardar(e) {
     if (edit == true) {
       console.log("pulsado Guardar");
-      let telefono = document.getElementById("telefono").value;
-      let direccion = document.getElementById("direccion").value;
-      let email = document.getElementById("email").value;
-      let genero = document.getElementById("genero").value;
-      let adicional = document.getElementById("adicional").value;
-      /* PETICION AJAX MEDIANTE JQuery al CONTROLER */
+      let telefono = document.getElementById("edit_telefono").value;
+      let direccion = document.getElementById("edit_direccion").value;
+      let email = document.getElementById("edit_email").value;
+      let genero = document.getElementById("edit_genero").value;
+      let adicional = document.getElementById("edit_adicional").value;
+      /* peticion AJAX mediante JQuery al Controller */
       funcion = "actualizar-usuario";
       $.post(
         "../controlador/UsuarioController.php",
@@ -118,6 +126,36 @@ $(document).ready(function () {
         document.getElementById("form-usuario").reset();
       }
     }
+    //para evitar que al hacer Submit se actualice la pagina
+    e.preventDefault();
+  }
+
+  /* EVENTO SUBMIT AL ENVIAR EL FORMULARIO DEL MODAL "Cambiar contraseña" */
+  document.getElementById("form-pass").addEventListener("submit", cambiarContrasena, false);
+  function cambiarContrasena(e) {
+    let oldpass = document.getElementById("old-pass").value;
+    let newpass = document.getElementById("new-pass").value;
+    funcion = "cambiar_contra";
+    /* peticion AJAX mediante JQuery al Controller */
+    $.post("../controlador/UsuarioController.php", { id_usuario, funcion, oldpass, newpass }, (response) => {
+      if (response == "update") {
+        let spanFlotante = document.getElementById("update");
+        spanFlotante.style.display = "";
+        document.getElementById("form-pass").reset();
+        setTimeout(cerrar, 5000);
+        function cerrar() {
+          spanFlotante.style.display = "none";
+        }
+      } else {
+        let spanFlotante = document.getElementById("no-update");
+        spanFlotante.style.display = "";
+        document.getElementById("form-pass").reset();
+        setTimeout(cerrar, 5000);
+        function cerrar() {
+          spanFlotante.style.display = "none";
+        }
+      }
+    });
     //para evitar que al hacer Submit se actualice la pagina
     e.preventDefault();
   }

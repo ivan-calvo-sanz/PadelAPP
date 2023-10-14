@@ -11,7 +11,8 @@ VARIABLES CSS
   --negro: hsl(0, 0%, 0%);
   --blanco: hsl(0, 0%, 100%);
   --rojo: #ff0000;
-  --azul: #0000ff;
+  --azul-fuerte: #0000ff;
+  --azul: #007bff;
   --gris-fuerte: #424242;
   --gris-medio: #606060;
   --gris-suave: #e7e7e7;

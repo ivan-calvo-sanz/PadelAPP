@@ -1,0 +1,47 @@
+@import url("./general.css");
+
+/* ******************** 
+HEADER
+******************** */
+/* BOTON MENU */
+.brand-text.font-weight-light {
+  color: var(--azul);
+}
+
+/* BOTON MENU */
+.nav-link.btn-menu i {
+  color: var(--negro);
+}
+.nav-link.btn-menu.active i {
+  color: var(--azul);
+}
+
+/* TEXTO ROL */
+.rol.nav-item.d-none.d-sm-inline-block span {
+  color: var(--negro);
+}
+
+/* ******************** 
+NAV
+******************** */
+/* ENLACES */
+p,
+.nav-link i {
+  color: var(--blanco);
+}
+.activeEnlace {
+  background-color: var(--azul);
+}
+.activarContenido span {
+  color: var(--azul);
+}
+/* TEXTO NOMBRE APELLIDOS USUARIO */
+/* TEXTO TITULOS PAGINAS */
+h1 i,
+h1 p {
+  color: var(--azul);
+}
+/* ENLACE ICONO TEXTO */
+.nav-item a i {
+  width: 35px;
+}

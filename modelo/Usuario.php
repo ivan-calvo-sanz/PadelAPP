@@ -48,7 +48,7 @@ class Usuario{
 
     /* FUNCION */
     /* UPDATE Usuario */
-    /* actualiza los datos del Usuario con los nuevos datos que se le pasan por parámetros */
+    /* actualiza los datos del Usuario con los nuevos datos que se le pasan por parámetro */
     /* NO Devuelve nada */
     function actualizar($id_usuario,$telefono,$direccion,$email,$genero,$adicional){
         $sql="UPDATE tblusuario SET telefono=:telefono,direccion=:direccion,email=:email,genero=:genero,
@@ -57,6 +57,33 @@ class Usuario{
         $query->execute(array(':id'=>$id_usuario,':telefono'=>$telefono,':direccion'=>$direccion,':email'=>$email,
         ':genero'=>$genero,':adicional'=>$adicional));
     }
+
+
+    /* FUNCION */
+    /* UPDATE Usuario Contraseña */
+    /* actualiza la contraseña comprobando que la contraseña actual que se pasa por parámetro es correcta */
+    /* Devuelve String */
+    function cambiar_contra($id_usuario,$oldpass,$newpass){
+        /* compruebo que la contraseña introducida pertenece al usuario logueado */
+        $sql="SELECT * FROM tblusuario WHERE id_usuario=:id AND contrasena=:oldpass";
+        $query=$this->acceso->prepare($sql);
+        $query->execute(array(':id'=>$id_usuario,':oldpass'=>$oldpass));
+        $this->objetos=$query->fetchAll();
+
+        /* Si $this->objetos NO está vacio significa que ha encontrado 1 resultado y entonces id_usuario y 
+        contraseña introducidos son correctos, sino, NO es correcto*/
+        if(!empty($this->objetos)){
+            /* actualizo la contraseña */
+            $sql="UPDATE tblusuario SET contrasena=:newpass WHERE id_usuario=:id";
+            $query=$this->acceso->prepare($sql);
+            $query->execute(array(':id'=>$id_usuario,':newpass'=>$newpass));
+            echo "update";
+        }else{
+            echo "noupdate";
+        }
+    }
+
+
 }
 
 ?>

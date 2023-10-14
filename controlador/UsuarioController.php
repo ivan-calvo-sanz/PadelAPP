@@ -22,6 +22,7 @@ if($_POST['funcion']=="buscar_usuario"){
             'email'=>$objeto->email,
             'genero'=>$objeto->genero,
             'adicional'=>$objeto->adicional,
+            'avatar'=>$objeto->avatar,
             'rol'=>$objeto->us_rol,
             'nivel'=>$objeto->nombre_nivel
         );
@@ -46,6 +47,16 @@ if($_POST['funcion']=="actualizar-usuario"){
     $usuario->actualizar($id_usuario,$telefono,$direccion,$email,$genero,$adicional);
     /* mando "editado" o NADA al JS para comprobar que se ha Actualizado la BBDD o NO */
     echo 'editado';
+}
+
+
+/* FUNCION */
+/* UPDATE Usuario Contraseña */
+if($_POST['funcion']=="cambiar_contra"){
+    $id_usuario=$_POST['id_usuario'];
+    $oldpass=$_POST['oldpass'];
+    $newpass=$_POST['newpass'];
+    $usuario->cambiar_contra($id_usuario,$oldpass,$newpass);
 }
 
 ?>

@@ -49,7 +49,7 @@ LOGIN
 
 .login_form {
   position: relative;
-  background-color: hsla(0, 0%, 10%, 0.1);
+  background-color: hsla(0, 0%, 100%, 0.3);
   border: 2px solid var(--blanco);
   margin-inline: 1.5rem;
   padding: 2.5rem 1.5rem;
@@ -90,7 +90,7 @@ LOGIN
   width: 100%;
   padding-block: 0.8rem;
   background: none;
-  color: var(--azul);
+  color: var(--azul-fuerte);
   position: relative;
   z-index: 1;
 }
@@ -107,10 +107,10 @@ LOGIN
   transition: top 0.3s, font-size 0.3s;
 }
 
-.login_eye {
+.login-eye {
   position: absolute;
   right: 0;
-  top: 18px;
+  top: 28px;
   z-index: 10;
   cursor: pointer;
 }
@@ -138,5 +138,3 @@ LOGIN
   top: -12px;
   font-size: var(--small-font-size);
 }
-
-/* ocultar contraseña */
