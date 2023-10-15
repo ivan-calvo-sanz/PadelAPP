@@ -59,7 +59,8 @@ INICIO LAYOUT AdminLTE
     <div class="sidebar">
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img id="avatar" src="../img/avatarDefault.png" class="profile-user-img img-file img-circle">
+          <!-- ../img/avatarDefault.png -->
+          <img id="avatar" src="#" class="profile-user-img img-file img-circle">
         </div>
         <div id="enlace0" class="info">
           <a href="datos_personales.php" class="d-block">

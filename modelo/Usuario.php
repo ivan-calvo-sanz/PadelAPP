@@ -84,6 +84,26 @@ class Usuario{
     }
 
 
+    /* FUNCION */
+    /* UPDATE Usuario Avatar */
+    /* actualiza el avatar del Usuario */
+    /* Devuelve Objeto con String del nombre avatar antiguo */
+    function cambiar_avatar($id_usuario,$nombre){
+        // para controlar el espacio ocupado en la carpeta img devuelve el nombre del archivo imagen old
+        $sql="SELECT avatar FROM tblusuario WHERE id_usuario=:id";
+        $query=$this->acceso->prepare($sql);
+        $query->execute(array(':id'=>$id_usuario));
+        $this->objetos=$query->fetchAll();
+
+        // realizo la actualizacion de la imagen
+        $sql="UPDATE tblusuario SET avatar=:nombre WHERE id_usuario=:id";
+        $query=$this->acceso->prepare($sql);
+        $query->execute(array(':id'=>$id_usuario,':nombre'=>$nombre));
+            
+        // devuelvo el objeto anterior que contiene el nombre del avatar antiguo
+        return $this->objetos;
+    }
+
 }
 
 ?>

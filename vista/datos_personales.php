@@ -28,7 +28,8 @@ sino que sea necesario estar Logueado y como Usuario Administrador-->
       </div>
       <div class="modal-body">
         <div class="text-center">
-            <img id="avatar" src="../img/avatarDefault.png" class="avatar profile-user-img img-file img-circle">
+            <!-- ../img/avatarDefault.png -->
+            <img id="avatar" src="#" class="avatar profile-user-img img-file img-circle">
         </div>
         <div class="text-center"><b>
             <?php echo $_SESSION['nombre_user']; ?>
@@ -75,7 +76,8 @@ sino que sea necesario estar Logueado y como Usuario Administrador-->
       </div>
       <div class="modal-body">
         <div class="text-center">
-            <img id="avatar" src="../img/avatarDefault.png" class="avatar profile-user-img img-file img-circle">
+            <!-- ../img/avatarDefault.png -->
+            <img id="avatar" src="#" class="avatar profile-user-img img-file img-circle">
         </div>
         <div class="text-center"><b>
             <?php echo $_SESSION['nombre_user']; ?>
@@ -91,13 +93,13 @@ sino que sea necesario estar Logueado y como Usuario Administrador-->
         </div>
 
         <!-- enctype="multipart/form-data" para que el formulario permita FILES -->
-        <form action="" id="form-photo" enctype="multipart/form-data">
+        <form action="" id="form-avatar" enctype="multipart/form-data">
             <div class="input-group mb-3 ml-5 mt-2">
                 <!-- al enviarlos al Controller este recoge los name no los id -->
                 <!-- no coge los "id" sino los "name" -->
                 <input type="file" id="form-file" name="photo" class="input-group">
                 <!-- utilizo un input oculto hidden, para enviar dato al Controller de forma enmascarada -->
-                <input type="hidden" name="funcion" value="cambiar_photo">
+                <input type="hidden" name="funcion" value="cambiar_avatar">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cerrar</button>
@@ -152,7 +154,8 @@ INICIO CONTENIDO DE LA PAGINA
                             </div>
                             <div class="card-body">
                                 <div class="text-center">
-                                    <img id="avatar" src="../img/avatarDefault.png" class="avatar profile-user-img img-fluid img-circle">
+                                    <!-- ../img/avatarDefault.png -->
+                                    <img id="avatar" src="#" class="avatar profile-user-img img-fluid img-circle">
                                 </div>
                                 <!-- Button trigger modal BOOTSTRAP cambiar Avatar -->
                                 <div class="text-center mt-1">

@@ -22,9 +22,9 @@ $(document).ready(function () {
     /* mediante JQuery realizo una peticion AJAX post al CONTROLER */
     $.post("../controlador/UsuarioController.php", { id_usuario, funcion }, (response) => {
       /* convierto el JSON (String) que devuelve el UsuarioControLler.php a Objeto JSON JS */
+      //console.log(response);
       const usuario = JSON.parse(response);
-      /* console.log(usuario); */
-      let nombre_usuario = usuario.nombre_usuario;
+      //let nombre_usuario = usuario.nombre_usuario;
       let nombre = usuario.nombre;
       let apellidos = usuario.apellidos;
       let edad = usuario.edad;
@@ -156,6 +156,56 @@ $(document).ready(function () {
       }
     });
     //para evitar que al hacer Submit se actualice la pagina
+    e.preventDefault();
+  }
+
+  /* EVENTO SUBMIT AL ENVIAR EL FORMULARIO DEL MODAL "Cambiar avatar" */
+  document.getElementById("form-avatar").addEventListener("submit", cambiarAvatar, false);
+  function cambiarAvatar(e) {
+    let formData = new FormData($("#form-avatar")[0]);
+    $.ajax({
+      url: "../controlador/UsuarioController.php",
+      type: "POST",
+      data: formData,
+      cache: false,
+      processData: false,
+      contentType: false,
+    }).done(function (response) {
+      //console.log(response);
+      // decodifico el Json String que devuelve Controller
+      const json = JSON.parse(response);
+      if (json.alert == "edit") {
+        buscar_usuario(id_usuario);
+        // reseteo para que no se quede con la imagen guardada en la cahce de la APP
+        document.getElementById("form-avatar").reset();
+        // hago que aparezca un mensaje flotante
+        let spanFlotante = document.getElementById("edit");
+        spanFlotante.style.display = "";
+        setTimeout(cerrar, 5000);
+        function cerrar() {
+          spanFlotante.style.display = "none";
+        }
+
+        //console.log(json.ruta);
+        /* actualizo los avatars */
+        const avatars = document.getElementsByClassName("avatar");
+        for (let i = 0; i < avatars.length; i++) {
+          avatars[i].src = "../img/" + json.ruta;
+        }
+      } else {
+        //console.log("alert rojo");
+        // reseteo para que no se quede con la imagen guardada en la cahce de la APP
+        document.getElementById("form-avatar").reset();
+        // hago que aparezca un mensaje flotante
+        let spanFlotante = document.getElementById("no-edit");
+        spanFlotante.style.display = "";
+        setTimeout(cerrar, 5000);
+        function cerrar() {
+          spanFlotante.style.display = "none";
+        }
+      }
+    });
+
     e.preventDefault();
   }
 });
