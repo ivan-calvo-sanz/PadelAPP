@@ -44,7 +44,7 @@
     <div class="login">
         <img src="img/fondo.jpg" alt="login image" class="login_img">
     
-        <form id="login_form" action="controlador/LoginControler.php" method="post" class="login_form">
+        <form action="controlador/LoginControler.php" method="post" class="login_form">
             <h1 class="login_title">Login</h1>
             <div class="login_content">
 

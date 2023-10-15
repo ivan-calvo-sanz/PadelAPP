@@ -36,8 +36,7 @@ $(document).ready(function () {
       let email = usuario.email;
       let genero = usuario.genero;
       let adicional = usuario.adicional;
-      document.getElementById("nombre_us").innerHTML = nombre;
-      document.getElementById("apellidos_us").innerHTML = apellidos;
+      document.getElementById("nombre_apellidos_us").innerHTML = nombre + " " + apellidos;
       document.getElementById("edad").innerHTML = edad + " años";
       document.getElementById("dni_us").innerHTML = dni;
 

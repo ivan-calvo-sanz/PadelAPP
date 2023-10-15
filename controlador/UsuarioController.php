@@ -8,14 +8,18 @@ $usuario=new Usuario();
 if($_POST['funcion']=="buscar_usuario"){
     /* creo el JSON vacio */
     $json=array();
+    $fecha_actual=new DateTime();
     $usuario->obtener_datos($_POST['id_usuario']);
     foreach($usuario->objetos as $objeto){
+        $nacimiento=new DateTime($objeto->edad);
+        $edad=$nacimiento->diff($fecha_actual);
+        $edad_years=$edad->y;
         /* relleno el json con los datos que obtengo de la consulta de la BBDD */
         $json[]=array(
             'nombre_usuario'=>$objeto->usuario,
             'nombre'=>$objeto->nombre,
             'apellidos'=>$objeto->apellidos,
-            'edad'=>$objeto->edad,
+            'edad'=>$edad_years,
             'dni'=>$objeto->dni,
             'telefono'=>$objeto->telefono,
             'direccion'=>$objeto->direccion,

@@ -138,13 +138,19 @@ INICIO CONTENIDO DE LA PAGINA
                 <div class="row">
 
                     <!-- *** DISTRIBUCION 1 COLUMNA IZQUIERDA *** -->
-                    <!-- *** col-md-3 col=columna md=tamaño medio 3=que va a ocupar 3 columnas de las 12 que genera Bootstarp
-                    al utilizar la rejilla *** -->
+                    <!-- *** col-md-3 
+                            col=columna 
+                            md=tamaño medio 
+                            3=que va a ocupar 3 columnas de las 12 que genera Bootstarp al utilizar la rejilla 
+                    *** -->
                     <div class="col-md-3">
-                        <!-- *** DENTRO 3 FILAS  *** -->
                         <!-- *** FILA DENTRO DE LA COLUMNA *** -->
-                        <div class="card card-success card-outline">
-                            <div class="card-body box-profile">
+                        <div class="card card-success">
+                            <div class="card-header">
+                                <!-- <h3 class="card-title">Sobre mi</h3> -->
+                                <h3 id="nombre_apellidos_us" class="card-title">xxxxx</h3>
+                            </div>
+                            <div class="card-body">
                                 <div class="text-center">
                                     <img id="avatar" src="../img/avatarDefault.png" class="avatar profile-user-img img-fluid img-circle">
                                 </div>
@@ -156,9 +162,7 @@ INICIO CONTENIDO DE LA PAGINA
 
                                 <!-- CAMPOS OCULTOS PARA PASAR AL JS -->
                                 <input id="id_usuario" type="hidden" value="<?php echo $_SESSION['id_usuario']?>">
-
-                                <h3 id="nombre_us" class="profile-username text-center text-success">xxxxx</h3>
-                                <p id="apellidos_us" class="text-muted text-center">xxxxx</p>
+                                <br>
                                 <ul class="list-group list-group-unbordered mb-3">
                                     <li class="list-group-item">
                                         <b style="color:#0B7300">Rol</b>
@@ -179,7 +183,16 @@ INICIO CONTENIDO DE LA PAGINA
                                     data-toggle="modal" data-target="#cambio-contra">Cambiar contraseña</button>
                             </div>
                         </div>
+                    </div>
 
+
+                    <!-- *** DISTRIBUCION 1 COLUMNA MEDIO *** -->
+                    <!-- *** col-md-3 
+                            col=columna 
+                            md=tamaño medio 
+                            3=que va a ocupar 3 columnas de las 12 que genera Bootstarp al utilizar la rejilla 
+                    *** -->
+                    <div class="col-md-4">
                         <!-- *** FILA DENTRO DE LA COLUMNA *** -->
                         <div class="card card-success">
                             <div class="card-header">
@@ -211,10 +224,14 @@ INICIO CONTENIDO DE LA PAGINA
                         </div>
                     </div>
 
+                    
                     <!-- *** DISTRIBUCION 1 COLUMNA DERECHA, OCUPA TODO EL ESPACIO DERECHO *** -->
-                    <!-- *** col-md-9 col=columna md=tamaño medio 9=que va a ocupar 9 columnas de las 12 que genera Bootstarp
-                    al utilizar la rejilla *** -->
-                    <div class="col-md-9">
+                    <!-- *** col-md-6 
+                            col=columna 
+                            md=tamaño medio 
+                            6=que va a ocupar 6 columnas de las 12 que genera Bootstarp al utilizar la rejilla 
+                    *** -->
+                    <div class="col-md-5">
                         <!-- *** CREO UN div en el cual dentro irá todo el formulario *** -->
                         <div class="card card-success">
                             <!-- *** FILA DENTRO DE LA COLUMNA *** -->
@@ -275,14 +292,9 @@ INICIO CONTENIDO DE LA PAGINA
                                             <button type="submit" class="btn btn-block btn-outline-success">Guardar</button>
                                         </div>
                                     </div>
-
                                 </form>
-
                             </div>
-
                         </div> 
-
-                    
                     </div>
 
                 </div>

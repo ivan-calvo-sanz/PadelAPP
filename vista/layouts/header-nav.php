@@ -15,10 +15,11 @@ INICIO LAYOUT AdminLTE
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome (ICONOS) -->
   <link rel="stylesheet" href="../css/cssFont_Awesome/all.min.css">
+    <!-- CSS PARTICULARES -->
+  <link rel="stylesheet" href="../css/especial.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../css/cssAdminLTE/adminlte.min.css">
-  <!-- CSS PARTICULARES -->
-  <link rel="stylesheet" href="../css/especial.css">
+
 
 </head>
 <body class="hold-transition sidebar-mini">

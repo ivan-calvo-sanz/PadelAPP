@@ -36,7 +36,6 @@ LOGIN
   align-items: center;
 
   justify-content: center;
-  min-width: 576px;
 }
 
 .login_img {
@@ -138,3 +137,7 @@ LOGIN
   top: -12px;
   font-size: var(--small-font-size);
 }
+
+/* ******************** 
+datos_personales.php
+******************** */
