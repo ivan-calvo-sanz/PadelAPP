@@ -65,7 +65,7 @@ sino que sea necesario estar Logueado y como Usuario Administrador-->
 </div>
 
 <!-- Modal BOOTSTRAP Cambio Avatar -->
-<div class="modal fade" id="cambiophoto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="cambiarAvatar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -160,7 +160,7 @@ INICIO CONTENIDO DE LA PAGINA
                                 <!-- Button trigger modal BOOTSTRAP cambiar Avatar -->
                                 <div class="text-center mt-1">
                                     <button type="button" class="btn btn-primary btn-sm"
-                                    data-toggle="modal" data-target="#cambiophoto">Cambiar avatar</button>
+                                    data-toggle="modal" data-target="#cambiarAvatar">Cambiar avatar</button>
                                 </div>
 
                                 <!-- CAMPOS OCULTOS PARA PASAR AL JS -->
