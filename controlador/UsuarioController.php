@@ -115,4 +115,48 @@ if($_POST['funcion']=="cambiar_avatar"){
     }
 }
 
+
+/* FUNCION */
+/* READ Usuarios Cards */
+if($_POST['funcion']=="buscar_usuarios_cards"){
+    /* creo el JSON vacio */
+    $json=array();
+    $fecha_actual=new DateTime();
+    $usuario->buscarCards();
+    foreach($usuario->objetos as $objeto){
+        $nacimiento=new DateTime($objeto->edad);
+        $edad=$nacimiento->diff($fecha_actual);
+        $edad_years=$edad->y;
+        /* relleno el json con los datos que obtengo de la consulta de la BBDD */
+        $json[]=array(
+            'id'=>$objeto->id_usuario,
+            'usuario'=>$objeto->usuario,
+            'nombre'=>$objeto->nombre,
+            'apellidos'=>$objeto->apellidos,
+            'edad'=>$edad_years,
+            'dni'=>$objeto->dni,
+            /* tipo mapea de la BBDD nombre_tipo que es String */
+            'rol'=>$objeto->nombre_rol,
+            'telefono'=>$objeto->telefono,
+            'direccion'=>$objeto->direccion,
+            'email'=>$objeto->email,
+            'genero'=>$objeto->genero,
+            'adicional'=>$objeto->adicional,
+            'avatar'=>'../img/'.$objeto->avatar,
+            /* tipo_usuario mapea de la BBDD un tipo Integer */
+            /* 'tipo_usuario'=>$objeto->us_tipo, */
+            /* aqui hacer union SELECT con tabla nivel usuario */
+        );
+    }
+    /* para enviar el JSON al JS */
+    /* json_encode realiza la transformacion del JSON PHP a un JSON codificado como String */
+    $jsonstring=json_encode($json);
+    /* envio el JSON como String */
+    echo $jsonstring;
+}
+
+
+
+
+
 ?>

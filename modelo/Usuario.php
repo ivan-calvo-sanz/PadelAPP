@@ -104,6 +104,33 @@ class Usuario{
         return $this->objetos;
     }
 
+
+    /* FUNCION */
+    /* READ Usuario Cards */
+    /* busca los usuarios cuyo nombre contiene las letras que se le pasa por parámetro */
+    /* Devuelve Objeto con los datos de todos los Usuarios coincidentes */
+    function buscarCards(){
+        //si "consulta" NO está vacio, es decir si hemos introducido algo en el cuadro de texto
+        //es decir, si envia algo realizo una consulta
+        if(!empty($_POST["consulta"])){
+            $consulta=$_POST["consulta"];
+            $sql="SELECT * FROM tblusuario JOIN tblrol ON us_rol=id_rol WHERE nombre LIKE :consulta";
+            $query=$this->acceso->prepare($sql);
+            //utilizo %consulta% para que busque coincidencias NO solo la busqueda exacta
+            $query->execute(array(':consulta'=>"%$consulta%"));
+            $this->objetos=$query->fetchAll();
+            return $this->objetos;
+
+        //si NO envia nada realizo otra consulta diferente
+        }else{
+            $sql="SELECT * FROM tblusuario JOIN tblrol ON us_rol=id_rol WHERE nombre NOT LIKE '' ORDER BY id_usuario LIMIT 25";
+            $query=$this->acceso->prepare($sql);
+            $query->execute();
+            $this->objetos=$query->fetchAll();
+            return $this->objetos;
+        }
+    }
+
 }
 
 ?>

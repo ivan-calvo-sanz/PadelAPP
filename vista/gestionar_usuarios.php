@@ -33,7 +33,8 @@ INICIO CONTENIDO DE LA PAGINA
       </div>
       <div class="modal-body">
         <div class="text-center">
-            <img id="avatar3" src="../img/avatar.png" alt="" class="profile-user-img img-file img-circle">
+          <!-- <img id="avatar3" src="../img/avatar.png" alt="" class="profile-user-img img-file img-circle"> -->
+            <img id="avatar3" src="#" alt="" class="profile-user-img img-file img-circle">
         </div>
         <div class="text-center"><b>
             <?php   
@@ -112,8 +113,8 @@ INICIO CONTENIDO DE LA PAGINA
                     <input id="dni" type="text" class="form-control" placeholder="Ingrese DNI" required>
                 </div>
                 <div class="form-group">
-                    <label for="pass">Contraseña</label>
-                    <input id="pass" type="password" class="form-control" placeholder="Ingrese contraseña" required>
+                    <label for="password">Contraseña</label>
+                    <input id="password" type="password" class="form-control" placeholder="Ingrese contraseña" required>
                 </div>
         
                 <div class="card-footer">
@@ -200,4 +201,4 @@ FIN CONTENIDO DE LA PAGINA
     }
 ?>
 
-<!-- <script src="../js/gestionar_usuarios.js"></script> -->
+<script src="../js/gestionar_usuarios.js"></script>
