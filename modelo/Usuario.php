@@ -114,7 +114,10 @@ class Usuario{
         //es decir, si envia algo realizo una consulta
         if(!empty($_POST["consulta"])){
             $consulta=$_POST["consulta"];
-            $sql="SELECT * FROM tblusuario JOIN tblrol ON us_rol=id_rol WHERE nombre LIKE :consulta";
+            /* SELECT * FROM tblusuario INNER JOIN tblrol ON us_rol=id_rol INNER JOIN tblnivel ON us_nivel=id_nivel WHERE nombre LIKE :consulta; */
+            /* $sql="SELECT * FROM tblusuario JOIN tblrol ON us_rol=id_rol WHERE nombre LIKE :consulta"; */
+            $sql="SELECT * FROM tblusuario INNER JOIN tblrol ON us_rol=id_rol INNER JOIN tblnivel ON us_nivel=id_nivel WHERE nombre LIKE :consulta 
+            ORDER BY us_rol LIMIT 25";
             $query=$this->acceso->prepare($sql);
             //utilizo %consulta% para que busque coincidencias NO solo la busqueda exacta
             $query->execute(array(':consulta'=>"%$consulta%"));
@@ -123,7 +126,9 @@ class Usuario{
 
         //si NO envia nada realizo otra consulta diferente
         }else{
-            $sql="SELECT * FROM tblusuario JOIN tblrol ON us_rol=id_rol WHERE nombre NOT LIKE '' ORDER BY id_usuario LIMIT 25";
+            /* $sql="SELECT * FROM tblusuario JOIN tblrol ON us_rol=id_rol WHERE nombre NOT LIKE '' ORDER BY id_usuario LIMIT 25"; */
+            $sql="SELECT * FROM tblusuario INNER JOIN tblrol ON us_rol=id_rol INNER JOIN tblnivel ON us_nivel=id_nivel 
+            WHERE nombre NOT LIKE '' ORDER BY us_rol LIMIT 25";
             $query=$this->acceso->prepare($sql);
             $query->execute();
             $this->objetos=$query->fetchAll();
@@ -131,6 +136,179 @@ class Usuario{
         }
     }
 
-}
 
+    /* FUNCION */
+    /* DELETE Usuario */
+    /* busca el usuario cuyo id coincide con el que se le pasa por parámtero y borra su registro */
+    /* Devuelve String confirmando el borrado del registro */
+    function eliminar($id_usuario,$pass,$id_card){
+        // compruebo que la contraseña que introduce Usuario logueado es correcta
+        $sql="SELECT id_usuario FROM tblusuario WHERE id_usuario=:id_usuario AND contrasena=:pass";
+        $query=$this->acceso->prepare($sql);
+        $query->execute(array(':id_usuario'=>$id_usuario,':pass'=>$pass));
+        $this->objetos=$query->fetchAll();
+        // si la consulta devuelve valores, es decir NO está vacia, es que el usuairo logueado es correcto
+        if(!empty($this->objetos)){
+            $sql="DELETE FROM tblusuario WHERE id_usuario=:id_card";
+            $query=$this->acceso->prepare($sql);
+            $query->execute(array(':id_card'=>$id_card)); 
+            echo 'eliminado';
+        }else{
+            echo 'no_eliminado';
+        }
+    }
+
+
+    /* FUNCION */
+    /* ASCENDER Usuario */
+    /* busca el usuario cuyo id coincide con el que se le pasa por parámtero y modifica su registro */
+    /* Devuelve String confirmando la actualización del registro */
+    function ascenderAAdmin($id_usuario,$pass,$id_card){
+        // compruebo que la contraseña que introduce Usuario logueado es correcta
+        $sql="SELECT id_usuario FROM tblusuario WHERE id_usuario=:id_usuario AND contrasena=:pass";
+        $query=$this->acceso->prepare($sql);
+        $query->execute(array(':id_usuario'=>$id_usuario,':pass'=>$pass));
+        $this->objetos=$query->fetchAll();
+        // si la consulta devuelve valores, es decir NO está vacia, es que el usuairo logueado es correcto
+        if(!empty($this->objetos)){
+            $rol="2";
+            $sql="UPDATE tblusuario SET us_rol=:rol WHERE id_usuario=:id_card";
+            $query=$this->acceso->prepare($sql);
+            $query->execute(array(':id_card'=>$id_card,':rol'=>$rol));
+            echo 'ascendidoAAdmin';
+        }else{
+            echo 'no_ascendidoAAdmin';
+        }
+    }
+
+
+    /* FUNCION */
+    /* DESCENDER Usuario */
+    /* busca el usuario cuyo id coincide con el que se le pasa por parámtero y modifica su registro */
+    /* Devuelve String confirmando la actualización del registro */
+    function desscenderAJugador($id_usuario,$pass,$id_card){
+        // compruebo que la contraseña que introduce Usuario logueado es correcta
+        $sql="SELECT id_usuario FROM tblusuario WHERE id_usuario=:id_usuario AND contrasena=:pass";
+        $query=$this->acceso->prepare($sql);
+        $query->execute(array(':id_usuario'=>$id_usuario,':pass'=>$pass));
+        $this->objetos=$query->fetchAll();
+        // si la consulta devuelve valores, es decir NO está vacia, es que el usuairo logueado es correcto
+        if(!empty($this->objetos)){
+            $rol="3";
+            $sql="UPDATE tblusuario SET us_rol=:rol WHERE id_usuario=:id_card";
+            $query=$this->acceso->prepare($sql);
+            $query->execute(array(':id_card'=>$id_card,':rol'=>$rol));
+            echo 'descendidoAJugador';
+        }else{
+            echo 'no_descendidoAJugador';
+        }
+    }
+
+    /* FUNCION */
+    /* SUBIR nivel Usuario */
+    /* busca el usuario cuyo id coincide con el que se le pasa por parámtero y modifica su registro */
+    /* Devuelve String confirmando la actualización del registro */
+    function subirNivel($id_usuario,$pass,$id_card){
+        // compruebo que la contraseña que introduce Usuario logueado es correcta
+        $sql="SELECT id_usuario FROM tblusuario WHERE id_usuario=:id_usuario AND contrasena=:pass";
+        $query=$this->acceso->prepare($sql);
+        $query->execute(array(':id_usuario'=>$id_usuario,':pass'=>$pass));
+        $this->objetos=$query->fetchAll();
+        
+        // si la consulta devuelve valores, es decir NO está vacia, es que el usuairo logueado es correcto             
+        if(!empty($this->objetos)){
+            // guardo el nivel que tiene ese jugador id_card
+            $sql="SELECT * FROM tblusuario WHERE id_usuario=:id_card";
+            $query=$this->acceso->prepare($sql);
+            $query->execute(array(':id_card'=>$id_card));
+            $this->objetos=$query->fetchAll();
+            foreach($this->objetos as $objeto){
+                $nivel=$objeto->us_nivel;
+                //echo $nivel;
+            }
+            if($nivel<6){
+                $nivel=$nivel+1;
+                //echo $nivel;
+                $sql="UPDATE tblusuario SET us_nivel=:nivel WHERE id_usuario=:id_card";
+                $query=$this->acceso->prepare($sql);
+                $query->execute(array(':id_card'=>$id_card,':nivel'=>$nivel)); 
+                echo 'nivelSubido';
+            }
+        }else{
+            echo 'no_nivelSubido';
+        }
+    }
+
+
+    /* FUNCION */
+    /* BAJAR nivel Usuario */
+    /* busca el usuario cuyo id coincide con el que se le pasa por parámtero y modifica su registro */
+    /* Devuelve String confirmando la actualización del registro */
+    function bajarNivel($id_usuario,$pass,$id_card){
+        // compruebo que la contraseña que introduce Usuario logueado es correcta
+        $sql="SELECT id_usuario FROM tblusuario WHERE id_usuario=:id_usuario AND contrasena=:pass";
+        $query=$this->acceso->prepare($sql);
+        $query->execute(array(':id_usuario'=>$id_usuario,':pass'=>$pass));
+        $this->objetos=$query->fetchAll();
+        
+        // si la consulta devuelve valores, es decir NO está vacia, es que el usuairo logueado es correcto             
+        if(!empty($this->objetos)){
+            // guardo el nivel que tiene ese jugador id_card
+            $sql="SELECT * FROM tblusuario WHERE id_usuario=:id_card";
+            $query=$this->acceso->prepare($sql);
+            $query->execute(array(':id_card'=>$id_card));
+            $this->objetos=$query->fetchAll();
+            foreach($this->objetos as $objeto){
+                $nivel=$objeto->us_nivel;
+                //echo $nivel;
+            }
+            if($nivel>0){
+                $nivel=$nivel-1;
+                //echo $nivel;
+                $sql="UPDATE tblusuario SET us_nivel=:nivel WHERE id_usuario=:id_card";
+                $query=$this->acceso->prepare($sql);
+                $query->execute(array(':id_card'=>$id_card,':nivel'=>$nivel)); 
+                echo 'nivelBajado';
+            }
+        }else{
+            echo 'no_nivelBajado';
+        }
+    }
+
+
+    /* FUNCION */
+    /* CREAR Usuario */
+    /* busca que NO exista ya un Usuario en la BBDD con ese DNI y crea el nuevo Usuario*/
+    /* dependiendo devuelve el String correspondiente */
+    function crear($nombre,$apellidos,$edad,$dni,$pass,$avatar,$rol,$nivel){
+        /* compruebo que el DNI es diferente a los ya guardados en la BBDD */
+        /* busco algun usuario en la tabla que tenga el mismo DNI */
+        $sql="SELECT id_usuario FROM tblusuario WHERE dni=:dni";
+        $query=$this->acceso->prepare($sql);
+        $query->execute(array(':dni'=>$dni));
+        $this->objetos=$query->fetchAll();
+
+        /* si existe algun usuario con ese DNI tiene que haber enviado algun dato la query */
+        if(!empty($this->objetos)){
+            echo 'noadd';
+        }else{
+            $sql="INSERT INTO tblusuario(nombre,apellidos,edad,dni,contrasena,avatar,us_rol,us_nivel) 
+                VALUES (:nombre,:apellidos,:edad,:dni,:pass,:avatar,:rol,:nivel)";
+            $query=$this->acceso->prepare($sql);
+            $query->execute(array(
+                ':nombre'=>$nombre,
+                ':apellidos'=>$apellidos,
+                ':edad'=>$edad,
+                ':dni'=>$dni,
+                ':pass'=>$pass,
+                ':avatar'=>$avatar,
+                ':rol'=>$rol,
+                ':nivel'=>$nivel
+                ));
+            echo 'add';
+        }
+    }
+
+
+}
 ?>

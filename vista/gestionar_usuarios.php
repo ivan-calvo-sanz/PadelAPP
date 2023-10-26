@@ -14,6 +14,9 @@ sino que sea necesario estar Logueado y como Usuario Administrador-->
     include_once "layouts/header-nav.php";
   ?>
 
+<!-- Theme style -->
+<link rel="stylesheet" href="../css/gestionar_usuarios.css">
+
 
 <!-- 
 ***************
@@ -21,7 +24,7 @@ INICIO CONTENIDO DE LA PAGINA
 ***************
 -->
 
-<!-- Modal BOOTSTRAP Confirmar Accion -->
+<!-- MODAL BOOTSTRAP CONFIRMAR ACCION -->
 <div class="modal fade" id="confirmar-contra" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -32,31 +35,21 @@ INICIO CONTENIDO DE LA PAGINA
         </button>
       </div>
       <div class="modal-body">
+
         <div class="text-center">
-          <!-- <img id="avatar3" src="../img/avatar.png" alt="" class="profile-user-img img-file img-circle"> -->
-            <img id="avatar3" src="#" alt="" class="profile-user-img img-file img-circle">
+            <img id="avatar" src="../img/<?php echo $_SESSION['avatar']; ?>" alt="" class="profile-user-img img-file img-circle">
         </div>
         <div class="text-center"><b>
-            <?php   
-                echo $_SESSION['nombre_us'];    
-            ?>
+            <?php echo $_SESSION['nombre']." ".$_SESSION['apellidos']; ?>
         </b></div>
         <span>Confirme su contraseña</span>
-        <!-- creo alert oculto lo gestiona JS cuando aparece -->
-        <div id="alert_confirmar" style="display:none" class="alert alert-success text-center">
-            <span><i class="fas fa-check"></i>   Se ha modificado al usuario</span>
-        </div>
-        <!-- creo alert oculto lo gestiona JS cuando aparece -->
-        <div id="alert_rechazar" style="display:none" class="alert alert-danger text-center">
-            <span><i class="fas fa-times"></i>   La contraseña NO es correcta</span>
-        </div>
 
         <form action="" id="form-confirmar">
             <div class="input-group">
                 <span class="input-group-text"><i class="fas fa-unlock-alt"></i></span>
                 <input id="pass" type="password" class="form-control" placeholder="Contraseña actual">
             </div>
-            <input type="hidden" id="id_user">
+            <input type="hidden" id="id_card">
             <input type="hidden" id="funcion">
 
             <div class="modal-footer">
@@ -71,7 +64,7 @@ INICIO CONTENIDO DE LA PAGINA
 </div>
 
 
-<!-- Modal BOOTSTRAP Cambio Avatar -->
+<!-- MODAL BOOTSTRAP CREAR USUARIO -->
 <div class="modal fade" id="crearusuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -96,13 +89,35 @@ INICIO CONTENIDO DE LA PAGINA
 
             <!-- Creo el formulario -->
             <form id="form-crear">
+
+              <div class="form-group select">
+                <label for="rol">ROL</label>
+                <select id="rol" class="form-select" aria-label="Default select example">
+                  <option value="2" selected>Administrador</option>
+                  <option value="3">Jugador</option>
+                </select>
+              </div>
+
+              <div class="form-group select">
+                <label for="nivel">NIVEL</label>
+                <select id="nivel" class="form-select" aria-label="Default select example">
+                  <option value="0" selected>Sin nivel</option>
+                  <option value="1">Iniciación</option>
+                  <option value="2">Intermedio</option>
+                  <option value="3">Intermedio Alto</option>
+                  <option value="4">Avanzado</option>
+                  <option value="5">Competición</option>
+                  <option value="6">Profesional</option>
+                </select>
+              </div>
+
                 <div class="form-group">
-                    <label for="nombre">Nombres</label>
+                    <label for="nombre">Nombre</label>
                     <input id="nombre" type="text" class="form-control" placeholder="Ingrese nombre" required>
                 </div>
                 <div class="form-group">
-                    <label for="apellido">Apellidos</label>
-                    <input id="apellido" type="text" class="form-control" placeholder="Ingrese apellido" required>
+                    <label for="apellidos">Apellidos</label>
+                    <input id="apellidos" type="text" class="form-control" placeholder="Ingrese apellidos" required>
                 </div>
                 <div class="form-group">
                     <label for="edad">Nacimiento</label>
@@ -144,10 +159,19 @@ INICIO CONTENIDO DE LA PAGINA
             <!-- mediante un campo input oculto paso al JS el rol del usuario -->
             <input type="hidden" id="rol_usuario" value="<?php echo $_SESSION['us_rol'] ?>">  
 
-            <!-- Creo el link al MODAL -->
-            <button type="button" id="button-crear" 
-            data-toggle="modal" data-target="#crearusuario" class="btn bg-gradient-primary ml-2">Crear usuario</button>
-            </h1>
+
+            <!-- CREO BOTON MODAL "Crear Usuario" -->
+            <!-- solo se muestra si es rol=ROOT  -->
+            <?php
+              if ($_SESSION['us_rol'] == 1) {
+                echo '
+                  <button type="button" id="button-crear" 
+                  data-toggle="modal" data-target="#crearusuario" class="btn bg-gradient-primary ml-2">Crear usuario</button>
+                ';
+              }
+            ?>
+
+            
           </div>
 
         </div>
@@ -158,17 +182,14 @@ INICIO CONTENIDO DE LA PAGINA
     <section>
     <div class="container-fluid">
         <div class="card card-success">
-            <div class="card-header">
+            <div class="card-header principal">
                 <h3 class="card-title">Buscar usuario</h3>
                 <div class="input-group">
                     <input type="text" id="buscar" placeholder="Nombre de usuario" class="form-control float-left">
-                    <div class="input-group-append">
-                        <button class="btn btn-default">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </div>
                 </div>
+                
             </div>
+            <h3 id="numUsuarios" class="card-title numUsuarios">usuarios</h3>
             
             <div class="card-body">
               <div id="usuarios" class="row d-flex align-items-stretch">

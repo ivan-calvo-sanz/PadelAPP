@@ -136,16 +136,16 @@ if($_POST['funcion']=="buscar_usuarios_cards"){
             'edad'=>$edad_years,
             'dni'=>$objeto->dni,
             /* tipo mapea de la BBDD nombre_tipo que es String */
-            'rol'=>$objeto->nombre_rol,
+            'rol'=>$objeto->us_rol,
+            'rolString'=>$objeto->nombre_rol,
             'telefono'=>$objeto->telefono,
             'direccion'=>$objeto->direccion,
             'email'=>$objeto->email,
             'genero'=>$objeto->genero,
             'adicional'=>$objeto->adicional,
             'avatar'=>'../img/'.$objeto->avatar,
-            /* tipo_usuario mapea de la BBDD un tipo Integer */
-            /* 'tipo_usuario'=>$objeto->us_tipo, */
-            /* aqui hacer union SELECT con tabla nivel usuario */
+            'nivelString'=>$objeto->nombre_nivel,
+            'nivelNum'=>$objeto->us_nivel,
         );
     }
     /* para enviar el JSON al JS */
@@ -156,6 +156,68 @@ if($_POST['funcion']=="buscar_usuarios_cards"){
 }
 
 
+/* FUNCION */
+/* DELETE Usuario */
+if($_POST['funcion']=="eliminarJugador"){
+    $pass=$_POST['pass'];
+    $id_card=$_POST['id_card'];
+    $usuario->eliminar($id_usuario,$pass,$id_card);
+}
+
+
+/* FUNCION */
+/* UPDATE Usuario */
+/* ASCENDER Usuario a "Administrador" */
+if($_POST['funcion']=="ascenderAAdmin"){
+    $pass=$_POST['pass'];
+    $id_card=$_POST['id_card'];
+    $usuario->ascenderAAdmin($id_usuario,$pass,$id_card);
+}
+
+/* FUNCION */
+/* UPDATE Usuario */
+/* DESCENDER Usuario a "Jugador" */
+if($_POST['funcion']=="descenderAJugador"){
+    $pass=$_POST['pass'];
+    $id_card=$_POST['id_card'];
+    $usuario->desscenderAJugador($id_usuario,$pass,$id_card);
+}
+
+
+/* FUNCION */
+/* UPDATE Usuario */
+/* SUBIR NIVEL Usuario */
+if($_POST['funcion']=="subirNivel"){
+    $pass=$_POST['pass'];
+    $id_card=$_POST['id_card'];
+    $usuario->subirNivel($id_usuario,$pass,$id_card);
+}
+
+
+/* FUNCION */
+/* UPDATE Usuario */
+/* BAJAR NIVEL Usuario */
+if($_POST['funcion']=="bajarNivel"){
+    $pass=$_POST['pass'];
+    $id_card=$_POST['id_card'];
+    $usuario->bajarNivel($id_usuario,$pass,$id_card);
+}
+
+
+/* FUNCION */
+/* CREATE Usuario */
+if($_POST['funcion']=="crear_usuario"){
+    $nombre=$_POST['nombre'];
+    $apellidos=$_POST['apellidos'];
+    $edad=$_POST['edad'];
+    $dni=$_POST['dni'];
+    $pass=$_POST['pass'];
+    $avatar="avatarDefault.png";
+    $rol=$_POST['rol'];
+    $nivel=$_POST['nivel'];
+
+    $usuario->crear($nombre,$apellidos,$edad,$dni,$pass,$avatar,$rol,$nivel);
+}
 
 
 

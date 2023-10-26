@@ -13,6 +13,9 @@ sino que sea necesario estar Logueado y como Usuario Administrador-->
     include_once "layouts/header-nav.php";
   ?>
 
+<!-- Theme style -->
+<link rel="stylesheet" href="../css/datos_personales.css">
+
 <!-- CAMPOS OCULTOS PARA PASAR AL JS -->
 <input id="avatarSession" type="hidden" value="<?php echo $_SESSION['avatar']?>">
 
@@ -168,17 +171,17 @@ INICIO CONTENIDO DE LA PAGINA
                                 <br>
                                 <ul class="list-group list-group-unbordered mb-3">
                                     <li class="list-group-item">
-                                        <b style="color:#0B7300">Rol</b>
+                                        <b>Rol</b>
                                         <span id="us_rol" class="float-right">xxxxx</span>
                                     </li>
                                     <li class="list-group-item">
-                                        <b style="color:#0B7300">Edad</b><a id="edad" class="float-right">xx</a>
+                                        <b>Edad</b><a id="edad" class="float-right">xx</a>
                                     </li>
                                     <li class="list-group-item">
-                                        <b style="color:#0B7300">DNI</b><a id="dni_us" class="float-right">xx</a>
+                                        <b>DNI</b><a id="dni_us" class="float-right">xx</a>
                                     </li>
                                     <li class="list-group-item">
-                                        <b style="color:#0B7300">Nivel del Jugador</b><a id="nivel" class="float-right">xx</a>
+                                        <b>Nivel del Jugador</b><a id="nivel" class="float-right">xx</a>
                                     </li>
                                 </ul>
                                     <!-- Button trigger modal BOOTSTRAP cambiar Contraseña -->
@@ -202,23 +205,23 @@ INICIO CONTENIDO DE LA PAGINA
                                 <h3 class="card-title">Sobre mi</h3>
                             </div>
                             <div class="card-body">
-                                <strong style="color:#0B7300">
+                                <strong>
                                     <i class="fas fa-phone mr-1"></i>Teléfono
                                 </strong>
                                     <p id="telefono" class="text-muted">xxxxx</p>
-                                <strong style="color:#0B7300">
+                                <strong>
                                     <i class="fas fa-map-marker-alt mr-1"></i>Dirección
                                 </strong>
                                     <p id="direccion" class="text-muted">xxxxx</p>
-                                <strong style="color:#0B7300">
+                                <strong>
                                     <i class="fas fa-at mr-1"></i>Email
                                 </strong>
                                     <p id="email" class="text-muted">xxxxx</p>
-                                <strong style="color:#0B7300">
+                                <strong>
                                     <i class="fas fa-smile-wink mr-1"></i>Genero
                                 </strong>
                                     <p id="genero" class="text-muted">xxxxx</p>
-                                <strong style="color:#0B7300">
+                                <strong>
                                     <i class="fas fa-pencil-alt mr-1"></i>Información adicional
                                 </strong>
                                     <p id="adicional" class="text-muted">xxxxx</p>

@@ -1,0 +1,6 @@
+@import url("./general.css");
+
+.list-group-item b,
+.card-body strong {
+  color: var(--verde);
+}
