@@ -1,0 +1,10 @@
+@import url("./general.css");
+
+/* ******************** 
+MODALES
+******************** */
+
+.alert {
+  margin-top: 10px;
+  margin-bottom: -10px;
+}

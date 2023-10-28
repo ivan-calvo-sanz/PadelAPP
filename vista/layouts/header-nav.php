@@ -83,14 +83,14 @@ INICIO LAYOUT AdminLTE
               <i class="fa-solid fa-circle-info fa-lg"></i>
               <p>CONTACTO</p>
             </a>
-          </li>
+          </li> 
          </ul>
       </div>
 
       <!-- Enlaces Menus -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <li class="nav-header">USUARIO</li>
+          <li class="nav-header">USUARIO</li> 
           <li class="nav-item">
             <a href="datos_personales.php" id="enlace3" class="nav-link">
               <i class="fa-solid fa-user fa-lg"></i>
@@ -107,7 +107,7 @@ INICIO LAYOUT AdminLTE
               </p>
             </a>
           </li>
-          <li class="nav-header">PARTIDOS</li>
+          <li class="nav-header">PARTIDOS</li> 
           <li class="nav-item">
             <a href="reservar_pista.php" id="enlace5" class="nav-link">
               <i class="fa-solid fa-table-tennis-paddle-ball fa-lg"></i>
@@ -119,6 +119,7 @@ INICIO LAYOUT AdminLTE
          
         </ul>
       </nav>
+
     </div>
   </aside>
 
