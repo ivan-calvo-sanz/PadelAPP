@@ -17,6 +17,10 @@ class Reserva{
     function consultarReservas($fecha,$hora){
         /* $sql="SELECT * FROM tblreserva INNER JOIN tblusuario ON us_tipo=id_tipo_us WHERE dni_us='$dni' AND contrasena_us='$pass'"; */
         $sql="SELECT * FROM tblreserva INNER JOIN tblusuario ON jugador=id_usuario WHERE fecha=:fecha AND hora=:hora";
+        /* SELECT * FROM tblreserva INNER JOIN tblusuario ON jugador=id_usuario INNER JOIN tblnivel ON us_nivel=id_nivel 
+        WHERE fecha="1-11-2023" AND hora="10:00"; */
+        $sql="SELECT * FROM tblreserva INNER JOIN tblusuario ON jugador=id_usuario INNER JOIN tblnivel ON us_nivel=id_nivel 
+        WHERE fecha=:fecha AND hora=:hora";
         $query=$this->acceso->prepare($sql);
         $query->execute(array(':fecha'=>$fecha,':hora'=>$hora));
 

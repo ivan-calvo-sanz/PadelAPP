@@ -1,3 +1,5 @@
+
+
 <!-- restringir que solo puedan entrar en la Sesion si está Logeado como Usuario ROOT o Administrador -->
 <!-- es decir evitar que por inyeccion en la URL poniendo la direccion /adm_catalogo.php se pueda entrar,
 sino que sea necesario estar Logueado y como Usuario Administrador-->

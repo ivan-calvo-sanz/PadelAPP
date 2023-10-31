@@ -6,7 +6,8 @@ sino que sea necesario estar Logueado y como Usuario Administrador-->
     session_start();
     /* si us_rol=1 significa que es Administrador */
     /* si us_rol=2 significa que es ROOT */
-    if($_SESSION['us_rol']==1||$_SESSION['us_rol']==2){
+    /* si us_rol=3 significa que es Jugador */
+    if($_SESSION['us_rol']==1||$_SESSION['us_rol']==2||$_SESSION['us_rol']==3){
 ?>
 
   <!-- INCLUYO EL HEADER-NAV -->

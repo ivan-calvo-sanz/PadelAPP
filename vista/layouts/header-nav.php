@@ -52,7 +52,7 @@ INICIO LAYOUT AdminLTE
     <!-- Logotipo -->
     <a href="home_root.php" class="brand-link">
       <img  src="../img/logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Padel APP</span>
+      <span class="brand-text font-weight-light"><b>Padel APP</b></span>
     </a>
 
     <!-- Avatar Usuario -->

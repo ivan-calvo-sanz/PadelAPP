@@ -1,19 +1,6 @@
 /* para que se ejecute el código JS una vez cargado todo el html */
 $(document).ready(function () {
   vaciar();
-  /*   var id_usuario = document.getElementById("id_usuario").value;
-  var tipoUsuario = document.getElementById("tipoUsuario").value;
-  var nombreUsuario = document.getElementById("nombreUsuario").value;
-  var apellidosUsuario = document.getElementById("apellidosUsuario").value;
-  var avatarUsuario = document.getElementById("avatarUsuario").value; */
-  /*   console.log("id_usuario: " + id_usuario);
-  console.log("tipoUsuario: " + tipoUsuario);
-  console.log("nombreUsuario: " + nombreUsuario);
-  console.log("apellidosUsuario: " + apellidosUsuario);
-  console.log("avatarUsuario: " + avatarUsuario); */
-  /*   document.getElementById("nombre_us").innerHTML = nombreUsuario;
-  document.getElementById("apellidos_us").innerHTML = apellidosUsuario;
-  document.getElementById("avatar1").src = "../img/avatars/" + avatarUsuario;*/
   document.getElementById("borrar_reserva").addEventListener("click", borrarReserva);
 
   var funcion = "";
@@ -61,31 +48,35 @@ $(document).ready(function () {
     botones_hora[i].addEventListener("click", consultarHora);
   }
 
-  function rellenarVacio(nombreJugador, pista, avatar) {
+  function rellenarVacio(nombreJugador, pista, avatar, nivel) {
     if (pista === "A") {
       let nombres = document.getElementsByClassName("jugadorNombreA");
       let avatars = document.getElementsByClassName("avatarsA");
-      recorre(nombres, avatars);
+      let niveles = document.getElementsByClassName("jugadorNivelA");
+      recorre(nombres, avatars, niveles);
     }
 
     if (pista === "B") {
       let nombres = document.getElementsByClassName("jugadorNombreB");
       let avatars = document.getElementsByClassName("avatarsB");
-      recorre(nombres, avatars);
+      let niveles = document.getElementsByClassName("jugadorNivelB");
+      recorre(nombres, avatars, niveles);
     }
 
     if (pista === "C") {
       let nombres = document.getElementsByClassName("jugadorNombreC");
       let avatars = document.getElementsByClassName("avatarsC");
-      recorre(nombres, avatars);
+      let niveles = document.getElementsByClassName("jugadorNivelC");
+      recorre(nombres, avatars, niveles);
     }
 
-    function recorre(nombres, avatars) {
+    function recorre(nombres, avatars, niveles) {
       for (i = 0; i < nombres.length; i++) {
         let reservado = nombres[i].getAttribute("reservado");
         if (reservado == "no") {
           nombres[i].setAttribute("reservado", "si");
           nombres[i].innerHTML = nombreJugador;
+          niveles[i].innerHTML = nivel;
           nombres[i].classList.add("text-danger");
           avatars[i].src = "../img/" + avatar;
           avatars[i].addEventListener("click", reservar);
@@ -99,19 +90,23 @@ $(document).ready(function () {
   function vaciar() {
     let nombres = document.getElementsByClassName("jugadorNombreA");
     let avatars = document.getElementsByClassName("avatarsA");
-    recorre(nombres, avatars);
+    let niveles = document.getElementsByClassName("jugadorNivelA");
+    recorre(nombres, avatars, niveles);
     nombres = document.getElementsByClassName("jugadorNombreB");
     avatars = document.getElementsByClassName("avatarsB");
-    recorre(nombres, avatars);
+    niveles = document.getElementsByClassName("jugadorNivelB");
+    recorre(nombres, avatars, niveles);
     nombres = document.getElementsByClassName("jugadorNombreC");
     avatars = document.getElementsByClassName("avatarsC");
-    recorre(nombres, avatars);
+    niveles = document.getElementsByClassName("jugadorNivelC");
+    recorre(nombres, avatars, niveles);
 
-    function recorre(nombres, avatars) {
+    function recorre(nombres, avatars, niveles) {
       for (i = 0; i < nombres.length; i++) {
         nombres[i].setAttribute("reservado", "no");
         nombres[i].classList.remove("text-danger");
         nombres[i].innerHTML = "libre";
+        niveles[i].innerHTML = "-";
         avatars[i].addEventListener("click", reservar);
         avatars[i].src = "../img/avatar_transparente.png";
       }
@@ -146,7 +141,7 @@ $(document).ready(function () {
 
       vaciar();
       reservas.forEach((reserva) => {
-        rellenarVacio(reserva.nombreJugador, reserva.pista, reserva.avatar);
+        rellenarVacio(reserva.nombreJugador, reserva.pista, reserva.avatar, reserva.nivelString);
       });
     });
 

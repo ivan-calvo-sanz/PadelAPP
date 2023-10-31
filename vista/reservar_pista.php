@@ -140,21 +140,25 @@ INICIO CONTENIDO DE LA PAGINA
                                 <img id="avatar1" src="../img/avatar_transparente.png" 
                                 class="avatarsA profile-user-img img-fluid img-circle">
                                 <h3 id="nombre_us" reservado="no" class="jugadorNombreA profile-username text-center">xxxxx</h3> 
+                                <p class="jugadorNivelA nivel text-muted text-center">xxxxx</p>
                             </div>
                             <div class="text-center ">
                                 <img id="avatar1" src="../img/avatar_transparente.png" 
                                 class="avatarsA profile-user-img img-fluid img-circle">
                                 <h3 id="nombre_us" reservado="no" class="jugadorNombreA profile-username text-center">xxxxx</h3>
+                                <p class="jugadorNivelA nivel text-muted text-center">xxxxx</p>
                             </div>
                             <div class="text-center ">
                                 <img id="avatar1" src="../img/avatar_transparente.png" 
                                 class="avatarsA profile-user-img img-fluid img-circle">
                                 <h3 id="nombre_us" reservado="no" class="jugadorNombreA profile-username text-center">xxxxx</h3>
+                                <p class="jugadorNivelA nivel text-muted text-center">xxxxx</p>
                             </div>
                             <div class="text-center ">
                                 <img id="avatar1" src="../img/avatar_transparente.png" 
                                 class="avatarsA profile-user-img img-fluid img-circle">
                                 <h3 id="nombre_us" reservado="no" class="jugadorNombreA profile-username text-center">xxxxx</h3>
+                                <p class="jugadorNivelA nivel text-muted text-center">xxxxx</p>
                             </div>
                         </div>
 
@@ -180,21 +184,25 @@ INICIO CONTENIDO DE LA PAGINA
                                 <img id="avatar1" src="../img/avatar_transparente.png" 
                                 class="avatarsB profile-user-img img-fluid img-circle">
                                 <h3 id="nombre_us" reservado="no" class="jugadorNombreB profile-username text-center">xxxxx</h3> 
+                                <p class="jugadorNivelB nivel text-muted text-center">xxxxx</p>
                             </div>
                             <div class="text-center ">
                                 <img id="avatar1" src="../img/avatar_transparente.png" 
                                 class="avatarsB profile-user-img img-fluid img-circle">
                                 <h3 id="nombre_us" reservado="no" class="jugadorNombreB profile-username text-center">xxxxx</h3>
+                                <p class="jugadorNivelB nivel text-muted text-center">xxxxx</p>
                             </div>
                             <div class="text-center ">
                                 <img id="avatar1" src="../img/avatar_transparente.png" 
                                 class="avatarsB profile-user-img img-fluid img-circle">
                                 <h3 id="nombre_us" reservado="no" class="jugadorNombreB profile-username text-center">xxxxx</h3>
+                                <p class="jugadorNivelB nivel text-muted text-center">xxxxx</p>
                             </div>
                             <div class="text-center ">
                                 <img id="avatar1" src="../img/avatar_transparente.png" 
                                 class="avatarsB profile-user-img img-fluid img-circle">
                                 <h3 id="nombre_us" reservado="no" class="jugadorNombreB profile-username text-center">xxxxx</h3>
+                                <p class="jugadorNivelB nivel text-muted text-center">xxxxx</p>
                             </div>
                         </div>
                      
@@ -220,21 +228,25 @@ INICIO CONTENIDO DE LA PAGINA
                                 <img id="avatar1" src="../img/avatars/avatar_transparente.png" 
                                 class="avatarsC profile-user-img img-fluid img-circle">
                                 <h3 id="nombre_us" reservado="no" class="jugadorNombreC profile-username text-center">xxxxx</h3> 
+                                <p class="jugadorNivelC nivel text-muted text-center">xxxxx</p>
                             </div>
                             <div class="text-center ">
                                 <img id="avatar1" src="../img/avatar_transparente.png" 
                                 class="avatarsC profile-user-img img-fluid img-circle">
                                 <h3 id="nombre_us" reservado="no" class="jugadorNombreC profile-username text-center">xxxxx</h3>
+                                <p class="jugadorNivelC nivel text-muted text-center">xxxxx</p>
                             </div>
                             <div class="text-center ">
                                 <img id="avatar1" src="../img/avatar_transparente.png" 
                                 class="avatarsC profile-user-img img-fluid img-circle">
                                 <h3 id="nombre_us" reservado="no" class="jugadorNombreC profile-username text-center">xxxxx</h3>
+                                <p class="jugadorNivelC nivel text-muted text-center">xxxxx</p>
                             </div>
                             <div class="text-center ">
                                 <img id="avatar1" src="../img/avatar_transparente.png" 
                                 class="avatarsC profile-user-img img-fluid img-circle">
                                 <h3 id="nombre_us" reservado="no" class="jugadorNombreC profile-username text-center">xxxxx</h3>
+                                <p class="jugadorNivelC nivel text-muted text-center">xxxxx</p>
                             </div>
                         </div>
                             

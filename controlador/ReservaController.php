@@ -23,6 +23,7 @@ if($_POST['funcion']=="consultarReservas"){
             'hora'=>$objeto->hora,
             'nombreJugador'=>$objeto->nombre,
             'avatar'=>$objeto->avatar,
+            'nivelString'=>$objeto->nombre_nivel,
         );
     }
     /* para enviar el JSON al JS */

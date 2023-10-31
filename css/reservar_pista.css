@@ -1,5 +1,10 @@
 @import url("./general.css");
 
+p.nivel {
+  margin-top: -10px;
+  color: blue;
+}
+
 /* ******************** 
 MODALES
 ******************** */

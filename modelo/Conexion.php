@@ -5,12 +5,18 @@ class Conexion{
     private $servidor="localhost";
     /*nombre asignada a la BBDD */
     private $db="padel";
+    // BBDD 000webhost
+    // private $db="id21471688_padel";
     /* puerto que utiliza mysql para conectarse a la BBDD */
     private $puerto=3306;
     /* tipos de datos en español */
     private $charset="utf8";
     private $usuario="root";
+    // BBDD 000webhost
+    //private $usuario="id21471688_ivan";
     private $contrasena="";
+    // BBDD 000webhost
+    //private $contrasena="nmadlpc--00AA";
     public $pdo=null;
 
     /* asigno que fuerce los nombres de las columnas a minusculas */
