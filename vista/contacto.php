@@ -31,7 +31,7 @@ INICIO CONTENIDO DE LA PAGINA
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="titulo"><p><i class="fa-solid fa-circle-info fa-lg"></i> CONTACTO</p></h1>
+            <h1 class="titulo"><p><i class="fa-solid fa-circle-info fa-lg"></i> Contacto</p></h1>
           </div>
         </div>
       </div>
@@ -53,7 +53,7 @@ INICIO CONTENIDO DE LA PAGINA
                   <input type="email" class="form-control" placeholder="Email">
                 </div>
                 <div class="form-group">
-                  <textarea class="form-control" cols="15" rows="7" placeholder="Mensage"></textarea>
+                  <textarea class="form-control" cols="15" rows="7" placeholder="Mensaje"></textarea>
                 </div>
 
                 <button type="submit" class="btn btn-primary">Enviar</button>

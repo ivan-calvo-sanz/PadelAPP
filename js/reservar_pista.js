@@ -7,11 +7,12 @@ $(document).ready(function () {
   var hora = "";
 
   var fecha = new Date();
+  document.getElementById("fecha").innerHTML = fecha.toLocaleDateString(undefined, opciones);
 
-  var formato_fecha = fecha.toLocaleDateString();
-  //console.log(formato_fecha);
-  formato_fecha = formato_fecha.replaceAll("/", "-");
-  document.getElementById("fecha").innerHTML = formato_fecha;
+  var opciones = { year: "numeric", month: "2-digit", day: "2-digit" };
+  var fecha_reverse = fecha.toLocaleDateString(undefined, opciones);
+  var formato_fecha = fecha_reverse.replace(/\//g, "-").split("-").reverse().join("-");
+  console.log(formato_fecha);
 
   document.getElementById(">").addEventListener("click", sumarDia);
   document.getElementById("<").addEventListener("click", restarDia);
@@ -23,10 +24,11 @@ $(document).ready(function () {
     controlarEstadoPista("B", -1);
     controlarEstadoPista("C", -1);
     fecha.setDate(fecha.getDate() + 1);
-    //console.log(fecha.toLocaleDateString());
-    formato_fecha = fecha.toLocaleDateString();
-    formato_fecha = formato_fecha.replaceAll("/", "-");
-    document.getElementById("fecha").innerHTML = formato_fecha;
+    document.getElementById("fecha").innerHTML = fecha.toLocaleDateString(undefined, opciones);
+
+    formato_fecha = fecha.toLocaleDateString(undefined, opciones);
+    formato_fecha = formato_fecha.replace(/\//g, "-").split("-").reverse().join("-");
+    console.log(formato_fecha);
   }
   function restarDia() {
     hora = "";
@@ -36,10 +38,11 @@ $(document).ready(function () {
     controlarEstadoPista("B", -1);
     controlarEstadoPista("C", -1);
     fecha.setDate(fecha.getDate() - 1);
-    //console.log(fecha.toLocaleDateString());
-    formato_fecha = fecha.toLocaleDateString();
-    formato_fecha = formato_fecha.replaceAll("/", "-");
-    document.getElementById("fecha").innerHTML = formato_fecha;
+    document.getElementById("fecha").innerHTML = fecha.toLocaleDateString(undefined, opciones);
+
+    formato_fecha = fecha.toLocaleDateString(undefined, opciones);
+    formato_fecha = formato_fecha.replace(/\//g, "-").split("-").reverse().join("-");
+    console.log(formato_fecha);
   }
 
   // dar evento a botones hora

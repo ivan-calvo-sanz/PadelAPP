@@ -1,0 +1,68 @@
+@import url("./general.css");
+
+.datos {
+  float: right;
+}
+
+.small-box.bg-warning.pasadas.inner {
+  margin-top: -14px;
+  width: 49%;
+  float: left;
+  color: brown;
+}
+.small-box.bg-warning.pasadas.inner .small-box-footer {
+  color: brown;
+  margin-top: -10px;
+}
+
+.small-box.bg-warning.futuras.inner {
+  margin-top: -14px;
+  width: 49%;
+  float: right;
+  color: brown;
+}
+.small-box.bg-warning.futuras.inner .small-box-footer {
+  color: brown;
+  margin-top: -10px;
+}
+
+/* ******************** 
+MODAL VISTA RESERVA
+.modal.fade
+******************** */
+.modal.fade .card-title.der {
+  /* text-align: center; */
+  /*   float: ;
+  position: ; */
+  float: right;
+}
+.modal.fade .card-title.der span {
+  margin-left: 5px;
+}
+.modal.fade .card-title.der button {
+  margin-left: 25px;
+}
+
+.modal.fade table {
+  text-align: center;
+}
+
+/* ******************** 
+home_jugador
+******************** */
+table.table-hover.text-nowrap {
+  text-align: center;
+}
+
+.card-header .card-title.der {
+  /* text-align: center; */
+  /*   float: ;
+  position: ; */
+  float: right;
+}
+.card-header .card-title.der span {
+  margin-left: 5px;
+}
+.card-header .card-title.der button {
+  margin-left: 25px;
+}

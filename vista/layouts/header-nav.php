@@ -73,7 +73,8 @@ INICIO LAYOUT AdminLTE
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-item">
-            <a href="home_root.php" id="enlace1" class="nav-link">
+            <!-- <a href="home_root.php" id="enlace1" class="nav-link"> -->
+            <a href="../controlador/LoginControler.php" id="enlace1" class="nav-link">
               <i class="fa-solid fa-house fa-lg"></i>
               <p>HOME</p>
             </a>
@@ -81,7 +82,7 @@ INICIO LAYOUT AdminLTE
           <li class="nav-item">
             <a href="contacto.php" id="enlace2" class="nav-link">
               <i class="fa-solid fa-circle-info fa-lg"></i>
-              <p>CONTACTO</p>
+              <p>Contacto</p>
             </a>
           </li> 
          </ul>

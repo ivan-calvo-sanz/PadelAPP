@@ -76,26 +76,97 @@ if($_POST['funcion']=="reservar"){
 }
 
 
+/* FUNCION */
+/* READ Reservas */
+/* Devuelve Datos generales del Estado de las Pistas */
+if($_POST['funcion']=="mostrar_datos_hoy"){
+    $json=array();
+    $json=$reserva->reservasHoy(0);
+    $jsonString=json_encode($json);
+    echo $jsonString;
+}
+if($_POST['funcion']=="mostrar_datos_mañana"){
+    $json=array();
+    $json=$reserva->reservasHoy(1);
+    $jsonString=json_encode($json);
+    echo $jsonString;
+}
+if($_POST['funcion']=="mostrar_datos_anuales_pasados"){
+    $json=array();
+    $json=$reserva->reservasAnualesPasadas();
+    $jsonString=json_encode($json);
+    echo $jsonString;
+}
+if($_POST['funcion']=="mostrar_datos_anuales_futuros"){
+    $json=array();
+    $json=$reserva->reservasAnualesFuturas();
+    $jsonString=json_encode($json);
+    echo $jsonString;
+}
 
 
+/* FUNCION */
+/* READ Reservas */
+/* Devuelve Datos generales para listar en "datatable" */
+if($_POST['funcion']=='listar'){
+    $reserva->buscar();
+    $json=array();
+    foreach($reserva->objetos as $objeto){
+        //documentacion de DATATABLE
+        $json['data'][]=$objeto;
+    }
+    $jsonstring=json_encode($json);
+    echo $jsonstring; 
+}
 
 
+/* FUNCION */
+/* READ Reservas */
+/* Devuelve Datos de una Reserva en concreto, pasándole por parámetro fecha, hora y pista */
+if($_POST['funcion']=='mostrarReserva'){
+    $fecha=$_POST['fecha'];
+    $hora=$_POST['hora'];
+    $pista=$_POST['pista'];
+    $json=array();
+    $json=$reserva->mostrarReserva($fecha,$hora,$pista);
+    $jsonString=json_encode($json);
+    echo $jsonString;
+}
 
 
+/* FUNCION */
+/* DELETE Reserva */
+if($_POST['funcion']=="borrarReservaID"){
+    $id_reserva=$_POST['id_reserva'];
+    $reserva->borrarReservaID($id_reserva);
+    return $reserva;
+}
 
 
+/* FUNCION */
+/* READ Reservas */
+/* Devuelve Datos generales para listar en "datatable" del Jugador logueado */
+if($_POST['funcion']=='listar_reservas_jugador'){
+    $reserva->buscar_reservas_jugador($id_usuario);
+    $json=array();
+    foreach($reserva->objetos as $objeto){
+        //documentacion de DATATABLE
+        $json['data'][]=$objeto;
+    }
+    $jsonstring=json_encode($json);
+    echo $jsonstring; 
+}
 
 
-
-
-
-
-
-
-
-
-
-
+/* FUNCION */
+/* READ Reserva */
+/* Devuelve Datos de la próxima Reserva del usuario logueado */
+if($_POST['funcion']=='mostrarProximaReserva'){
+    $json=array();
+    $json=$reserva->buscarProximaReservaJugador($id_usuario);
+    $jsonString=json_encode($json);
+    echo $jsonString;
+}
 
 
 

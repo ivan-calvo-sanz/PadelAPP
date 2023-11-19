@@ -3,9 +3,8 @@
 sino que sea necesario estar Logueado y como Usuario Administrador-->
 <?php
     session_start();
-    /* si us_rol=1 significa que es ROOT */
-    /* si us_rol=2 significa que es Administrador */
-    if($_SESSION['us_rol']==1||$_SESSION['us_rol']==2){
+    /* si us_rol=3 significa que es Jugador */
+    if($_SESSION['us_rol']==3){
 ?>
 
   <!-- INCLUYO EL HEADER-NAV -->
@@ -173,54 +172,72 @@ INICIO CONTENIDO DE LA PAGINA
             <section>
             <div class="container-fluid">
                 <div class="card card-success">
-                    <div class="card-header">
-                        <h3 class="card-title">Resumen Pistas</h3>
-                    </div>
+
+
+
+                <div class="card-header">
+                    <h3 class="card-title">Mi Próxima Reserva: <span id="miProximaReserva_reserva"> x </span></h3>
+                    <h3 class="card-title der">
+                      <span id="miProximaReserva_fecha"> xx/xx/xxxx </span>
+                      <span id="miProximaReserva_hora"> xx:xx </span>
+                      <span> Pista</span>
+                      <span id="miProximaReserva_pista">x</span>
+                    </h3>
+                </div>
+
+
+                    
                     <div class="card-body">
 
                         <div class="row">
-                          <!-- CAJA -->
-                            <div class="col-lg-3 col-6">
-                                <div class="small-box bg-info">
-                                  <a href="#" class="small-box-footer">HOY</a>
-                                  <div class="inner">
-                                      <div><p>PISTAS COMPLETAS<span class="datos" id="pistas_completas_hoy">0/3</span></p></div>
-                                      <div><p>PISTAS ABIERTAS<span class="datos" id="pistas_abiertas_hoy">0/15</span></p></div>
-                                      <div><p>PLAZAS LIBRES<span class="datos" id="plazas_libres_hoy">60/60</span></p></div>
-                                  </div>
-                                </div>
-                            </div>
-                            <!-- CAJA -->
-                            <div class="col-lg-3 col-6">
-                                <div class="small-box bg-success">
-                                  <a href="#" class="small-box-footer">MAÑANA</a>
-                                  <div class="inner">
-                                      <div><p>PISTAS COMPLETAS<span class="datos" id="pistas_completas_mañana">0/3</span></p></div>
-                                      <div><p>PISTAS ABIERTAS<span class="datos" id="pistas_abiertas_mañana">0/15</span></p></div>
-                                      <div><p>PLAZAS LIBRES<span class="datos" id="plazas_libres_mañana">60/60</span></p></div>
-                                  </div>
-                                </div>
-                            </div>
-                            <!-- CAJA -->
-                            <div class="col-lg-6 col-6">
-                                <div class="small-box bg-warning">
-                                  <p class="small-box-footer">TOTALES AÑO</p>
-                                  <div class="small-box bg-warning pasadas inner">
-                                    <div>
-                                      <p class="small-box-footer">PASADAS:</p>
-                                      <h3 id="pistas_reservadas_pasadas">0</h3>
-                                      <p>Pistas Completas Reservadas</p>
-                                    </div>
-                                  </div>
-                                  <div class="small-box bg-warning futuras inner">
-                                    <div>
-                                      <p class="small-box-footer">FUTURAS:</p>
-                                      <h3 id="pistas_reservadas_futuras">0</h3>
-                                      <p>Pistas Completas Reservadas</p>
-                                    </div>
-                                  </div>
-                                </div>
-                            </div>
+
+                    <table class="table table-hover text-nowrap">
+                        <thead class="table-success">
+                            <tr>
+                                <th id="miProximaReserva_usuario1">-</th>
+                                <th id="miProximaReserva_usuario2">-</th>
+                                <th id="miProximaReserva_usuario3">-</th>
+                                <th id="miProximaReserva_usuario4">-</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-warning" id="registros">
+                            <tr>
+                                <td>
+                                  <img id="miProximaReserva_avatar1" src="../img/avatar_transparente.png" 
+                                class="profile-user-img img-fluid img-circle"><br>
+                                  <span id="miProximaReserva_nombre1"></span><br>
+                                </td>
+                                <td>
+                                  <img id="miProximaReserva_avatar2" src="../img/avatar_transparente.png" 
+                                class="profile-user-img img-fluid img-circle"><br>
+                                  <span id="miProximaReserva_nombre2"></span><br>
+                                </td>
+                                <td>
+                                  <img id="miProximaReserva_avatar3" src="../img/avatar_transparente.png" 
+                                class="profile-user-img img-fluid img-circle"><br>
+                                  <span id="miProximaReserva_nombre3"></span><br>
+                                </td>
+                                <td>
+                                  <img id="miProximaReserva_avatar4" src="../img/avatar_transparente.png" 
+                                class="profile-user-img img-fluid img-circle"><br>
+                                  <span id="miProximaReserva_nombre4"></span><br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td id="miProximaReserva_nivel1">-</td>
+                                <td id="miProximaReserva_nivel2">-</td>
+                                <td id="miProximaReserva_nivel3">-</td>
+                                <td id="miProximaReserva_nivel4">-</td>
+                            </tr>
+                            <tr>
+                                <td id="miProximaReserva_tel1">-</td>
+                                <td id="miProximaReserva_tel2">-</td>
+                                <td id="miProximaReserva_tel3">-</td>
+                                <td id="miProximaReserva_tel4">-</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
 
                           </div>
 
@@ -234,13 +251,13 @@ INICIO CONTENIDO DE LA PAGINA
             <div class="container-fluid">
                 <div class="card card-success">
                     <div class="card-header">
-                        <h3 class="card-title">Buscar Reservas</h3>
+                        <h3 class="card-title">Mis Reservas</h3>
 
                     </div>
                     <div class="card-body">
 
 
-                        <table id="tabla_reservas" class="display table table-hover text-nowrap" style="width:100%">
+                        <table id="tabla_reservas_jugador" class="display table table-hover text-nowrap" style="width:100%">
                             <thead>
                                 <tr>
                                     <th>Reserva</th>
@@ -290,4 +307,4 @@ FIN CONTENIDO DE LA PAGINA
     }
 ?>
 <script src="../js/datatables.js"></script>
-<script src="../js/home_root.js"></script>
+<script src="../js/home_jugador.js"></script>
